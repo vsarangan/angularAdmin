@@ -1,0 +1,25 @@
+<form #newUserForm="ngForm" (ngSubmit)="onSubmit(newUserForm)">
+<mat-input-container>
+  <input matInput fxFill type="text" placeholder="User name" required maxlength="25" [(ngModel)]="userName" name="userName" #pickedName="ngModel">
+  <mat-error *ngIf="!pickedName.valid && pickedName.touched || pickedName.errors">  User name is required!</mat-error>
+</mat-input-container>
+<mat-input-container>
+  <input matInput fxFill type="email" email placeholder="Email" required [(ngModel)]="email" name="email" #userEmail="ngModel">
+  <mat-error *ngIf="!userEmail.valid && userEmail.touched || userEmail.errors"> User Email is required!</mat-error>
+</mat-input-container>
+<mat-input-container>
+  <input matInput fxFill type="text" placeholder="Nick name" [(ngModel)]="nickName" name="nickName">
+</mat-input-container>
+<mat-input-container>
+  <input matInput fxFill type="password"  placeholder="Password" required [(ngModel)]="password" name="password" #userPassword="ngModel">
+  <mat-error *ngIf="!userPassword.valid && userPassword.touched || userPassword.errors"> Password is required!</mat-error>
+</mat-input-container>
+  <button type='submit' mat-raised-button color="primary" >GO</button>
+</form>
+
+<pre>{{ newUserForm.form.value | json }}</pre>
+<!-- Value of whole form -->
+<pre>User name: {{ pickedName.value }}</pre>
+<!-- Value of userName field -->
+<pre>Valid form? {{ newUserForm.form.valid | json }}</pre>
+<!-- Validity of whole form -->

@@ -1,0 +1,34 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" style="height: 62px;">
+  <mat-input-container>
+    <input matInput type="text" fxFlex="100" placeholder='Type to filter the Name column...' (keyup)='updateFilter($event)' />
+  </mat-input-container>
+  <button mat-raised-button color="primary">
+    <mat-icon>add</mat-icon>New </button>
+</div>
+<div #tableWrapper>
+  <ngx-datatable class="material expandable" #table [columnMode]="'force'" [scrollbarH]="true" [headerHeight]="50" [footerHeight]="50"
+    [rowHeight]="'auto'" [rows]="rows" [columns]="columns" [limit]="10">
+    <ngx-datatable-column *ngFor="let col of columns" [name]="col.detail" [prop]="col.data" [flexGrow]=1 [resizeable]=true [sortable]=true
+      [flexGrow]="1">
+      <ng-template let-row="row" ngx-datatable-cell-template>
+        <span>{{row[col.data]}}</span>
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column>
+      <ng-template let-column="column" ngx-datatable-header-template>
+        actions
+      </ng-template>
+      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+        <button mat-icon-button color="primary" (click)="edit(row)">
+          <mat-icon class="fs18">undo</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="delete(row)">
+          <mat-icon class="fs18">delete_sweep</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="send(row)">
+          <mat-icon class="fs18">send</mat-icon>
+        </button>
+      </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>
+</div>

@@ -1,0 +1,30 @@
+    <mat-toolbar class="mat-hue-2 mat-tall mat-default-theme backimg">
+          <img class="avatarclass" [src]="userinfo.message.userdetail.userimage">
+        <div fxLayout="column"  fxLayoutAlign="space-around center" id="colorwhite" class="aligndetail">
+            <div class="mat-body-2 name">{{userinfo.message.userdetail.username}}</div>
+            <div class="mat-body-2 mail">{{userinfo.message.userdetail.userrole}}</div>
+        </div>
+    </mat-toolbar>
+    <perfect-scrollbar style="max-height: calc(100vh - 200px);">
+    <mat-nav-list>
+        <div *ngFor="let set1 of firstside">
+            <a (click)="routePage(set1)" [ngClass]="{ 'mat-primary active':activatemenu == set1 }"  mat-list-item><i class="material-icons">{{set1.icon}}</i>{{ set1.sidename | translate}}</a>
+        </div>
+        <mat-divider class="mat-default-theme"></mat-divider>
+        <h3 class="mat-no-sticky mat-subheader mat-default-theme ml16">
+            <div class="mat-subheader-inner"><span class="mat-subheader-content"><span >Management</span></span>
+            </div>
+        </h3>
+        <div *ngFor="let set2 of secondside">
+            <a mat-list-item (click)="routePage(set2)" [ngClass]="{ 'active':activatemenu == set2 }"><i class="material-icons">{{set2.icon}}</i>{{set2.sidename | translate}}</a>
+        </div>
+        <mat-divider class="mat-default-theme"></mat-divider>
+        <h3 class="mat-no-sticky mat-subheader mat-default-theme ml16">
+            <div class="mat-subheader-inner"><span class="mat-subheader-content"><span >App Creation</span></span>
+            </div>
+        </h3>
+        <!-- <div class="onoffpush">
+            <button style="margin-left: 15px;" mat-raised-button color="primary" (click)="openDialog()"><i style="margin-right: 0px !important;" class="material-icons">add</i> New App</button>
+        </div> -->
+    </mat-nav-list>
+</perfect-scrollbar>

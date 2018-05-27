@@ -1,0 +1,11 @@
+   <form [formGroup]="myFormGroup">
+      <mat-form-field>
+<input matInput placeholder="First name" (focus)="focusFunction($event)" (blur)="onBlurMethod($event)" formControlName="firstCtrl">
+</mat-form-field>
+<mat-form-field>
+
+<input matInput placeholder="Last name" (focus)="focusFunction($event)" (blur)="onBlurMethod($event)" formControlName="secondCtrl">
+
+
+      </mat-form-field>
+    </form>

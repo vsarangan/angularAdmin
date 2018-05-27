@@ -1,0 +1,15 @@
+<mat-toolbar class="logoheading fotterdown" color="primary">
+    <div class="rightside">
+        <span class="fs12">2017 - 2018 {{ 'copyright' | translate}} Tagit Pte Ltd</span>
+    </div>
+    <span class="example-spacer"></span>
+    <div class="rightside">
+        <button class="fs12" mat-button [matMenuTriggerFor]="helpMenu"><mat-icon class="fs12">expand_less</mat-icon> {{ 'help' | translate}}</button>
+    </div>
+</mat-toolbar>
+
+<mat-menu #helpMenu="matMenu">
+    <button mat-menu-item> {{ 'aboutus' | translate}} </button>
+</mat-menu>
+
+

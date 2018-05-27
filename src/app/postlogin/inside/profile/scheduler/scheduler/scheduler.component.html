@@ -1,0 +1,21 @@
+<app-ascheduler></app-ascheduler>
+<form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+  <div class="form-container">
+    <div class="row columns">
+      <h1>My Reactive Form</h1>
+      <label>Name
+        <input type="text" formControlName="name">
+      </label>
+
+      <label>Description
+        <textarea formControlName="description"></textarea>
+      </label>
+
+      <label for="validate">Minimum of 3 Characters</label>
+      <input type="checkbox" name="validate" formControlName="validate" value="1"> On
+
+      <input type="submit" #dataclick class="button expanded" style="display:none" value="Submit Form" >
+    </div>
+  </div>
+</form>
+<button (click)="dataclickfn()">hi click</button>

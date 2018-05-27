@@ -1,0 +1,116 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+@import 'tensTheme.scss';
+
+
+@mixin currentTheme($theme) {
+  @include setTENSTheme($theme);
+}
+
+/*.theme1 {
+    //cTheme is a primary
+    $primaryA: ( 50: #ffebee, 100: #ffcdd2, 200: #f0abab, 300: #e57373, 400: #ef5350, 500: #f44336, 600: #e53935, 700: #d32f2f, 800: #c62828, 900: #b71c1c, A100: #ff8a80, A200: #ff5252, A400: #ff1744, A700: #d50000, contrast: ( 50: $black-87-opacity, 100: $black-87-opacity, 200: $black-87-opacity, 300: $black-87-opacity, 400: $black-87-opacity, 500: white, 600: white, 700: white, 800: $white-87-opacity, 900: $white-87-opacity, A100: $black-87-opacity, A200: white, A400: white, A700: white, ));
+    $accentA: ( 50: #fce4ec, 100: #f8bbd0, 200: #f48fb1, 300: #f06292, 400: #ec407a, 500: #e91e63, 600: #d81b60, 700: #c2185b, 800: #ad1457, 900: #880e4f, A100: #ff80ab, A200: #ff4081, A400: #f50057, A700: #c51162, contrast: ( 50: $black-87-opacity, 100: $black-87-opacity, 200: $black-87-opacity, 300: $black-87-opacity, 400: $black-87-opacity, 500: white, 600: white, 700: $white-87-opacity, 800: $white-87-opacity, 900: $white-87-opacity, A100: $black-87-opacity, A200: white, A400: white, A700: white, ));
+    $warnA: ( 50: #f3e5f5, 100: #e1bee7, 200: #ce93d8, 300: #ba68c8, 400: #ab47bc, 500: #b3ff00, 600: #8e24aa, 700: #c2f800, 800: #6a1b9a, 900: #4a148c, A100: #ea80fc, A200: #e040fb, A400: #d500f9, A700: #aa00ff, contrast: ( 50: $black-87-opacity, 100: $black-87-opacity, 200: $black-87-opacity, 300: white, 400: white, 500: $white-87-opacity, 600: $white-87-opacity, 700: $white-87-opacity, 800: $white-87-opacity, 900: $white-87-opacity, A100: $black-87-opacity, A200: white, A400: white, A700: white, ));
+    // Define a custom font colour that takes in the current theme
+    @function current-theme-foreground($color) {
+        @return ( base: $color, divider: $black-12-opacity, dividers: $black-12-opacity, disabled: rgba($color, 0.38), disabled-button: rgba($color, 0.38), disabled-text: rgba($color, 0.38), hint-text: rgba($color, 0.38), secondary-text: rgba($color, 0.54), icon: rgba($color, 0.54), icons: rgba($color, 0.54), text: rgba($color, 0.99), slider-off: rgba($color, 0.26), slider-off-active: rgba($color, 0.38), );
+    }
+    // You can put any color here. I've chosen mat-color($my-app-primary, 700)
+    $fontColour: current-theme-foreground(mat-color($warnA, 700));
+    // Parse the theme and create variables for each color in the pallete
+    $primaryA: mat-palette($primaryA);
+    $accentA: mat-palette($accentA, A200, A100, A400);
+    $warnA: mat-palette($warnA);
+    // Create the Light theme object (a Sass map containing all of the palettes).
+    $lightThemeA: mat-light-theme( $primaryA, $accentA, $warnA);
+    $darkThemeA: mat-dark-theme( $primaryA, $accentA, $warnA);
+    // Define a custom mixin that takes in the current theme
+    @mixin currentTheme($themeMerge) {
+        @include setTENSTheme($themeMerge);
+
+    }
+    $themeMerge: map-merge($lightThemeA, (foreground: $fontColour));
+    @include angular-material-theme($lightThemeA);
+    // Pass the theme variable to the mixin
+    @include currentTheme($themeMerge);
+}
+.theme2 {
+    $primaryA: ( 50: #ffebee, 100: #ffcdd2, 200: #f0abab, 300: #e57373, 400: #ef5350, 500: #f44336, 600: #e53935, 700: #d32f2f, 800: #c62828, 900: #b71c1c, A100: #ff8a80, A200: #ff5252, A400: #ff1744, A700: #d50000, contrast: ( 50: $black-87-opacity, 100: $black-87-opacity, 200: $black-87-opacity, 300: $black-87-opacity, 400: $black-87-opacity, 500: white, 600: white, 700: white, 800: $white-87-opacity, 900: $white-87-opacity, A100: $black-87-opacity, A200: white, A400: white, A700: white, ));
+    $accentA: ( 50: #fce4ec, 100: #f8bbd0, 200: #f48fb1, 300: #f06292, 400: #ec407a, 500: #e91e63, 600: #d81b60, 700: #c2185b, 800: #ad1457, 900: #880e4f, A100: #ff80ab, A200: #ff4081, A400: #f50057, A700: #c51162, contrast: ( 50: $black-87-opacity, 100: $black-87-opacity, 200: $black-87-opacity, 300: $black-87-opacity, 400: $black-87-opacity, 500: white, 600: white, 700: $white-87-opacity, 800: $white-87-opacity, 900: $white-87-opacity, A100: $black-87-opacity, A200: white, A400: white, A700: white, ));
+    $warnA: ( 50: #f3e5f5, 100: #e1bee7, 200: #ce93d8, 300: #ba68c8, 400: #ab47bc, 500: #b3ff00, 600: #8e24aa, 700: #c2f800, 800: #6a1b9a, 900: #4a148c, A100: #ea80fc, A200: #e040fb, A400: #d500f9, A700: #aa00ff, contrast: ( 50: $black-87-opacity, 100: $black-87-opacity, 200: $black-87-opacity, 300: white, 400: white, 500: $white-87-opacity, 600: $white-87-opacity, 700: $white-87-opacity, 800: $white-87-opacity, 900: $white-87-opacity, A100: $black-87-opacity, A200: white, A400: white, A700: white, )); // Define a custom font colour that takes in the current theme
+    @function current-theme-foreground($color) {
+      @return ( base: $color, divider: $black-12-opacity, dividers: $black-12-opacity, disabled: rgba($color, 0.38), disabled-button: rgba($color, 0.38), disabled-text: rgba($color, 0.38), hint-text: rgba($color, 0.38), secondary-text: rgba($color, 0.54), icon: rgba($color, 0.54), icons: rgba($color, 0.54), text: rgba($color, 0.99), slider-off: rgba($color, 0.26), slider-off-active: rgba($color, 0.38), );
+    } // You can put any color here. I've chosen mat-color($my-app-primary, 700)
+    $fontColour: current-theme-foreground(mat-color($warnA, 900)); // Parse the theme and create variables for each color in the pallete
+
+    $primaryA: mat-palette($primaryA, A700);
+    $accentA: mat-palette($accentA, A200, A100, A400);
+    $warnA: mat-palette($warnA, 50); // Create the Light theme object (a Sass map containing all of the palettes).
+    $lightThemeA: mat-light-theme( $primaryA, $accentA, $warnA);
+    $darkThemeA: mat-dark-theme( $primaryA, $accentA, $warnA); // Define a custom mixin that takes in the current theme
+    @mixin currentTheme($themeMerge) {
+      @include setTENSTheme($themeMerge);
+
+    }
+
+    $themeMerge: map-merge($lightThemeA, (foreground: $fontColour));
+    @include angular-material-theme($lightThemeA); // Pass the theme variable to the mixin
+    @include currentTheme($themeMerge);
+
+}
+.theme3 {
+    $primaryC: mat-palette($mat-blue);
+    $accentC: mat-palette($mat-blue-grey);
+    $warnC: mat-palette($mat-red);
+    $lightThemeC: mat-light-theme($primaryC, $accentC, $warnC);
+    @include angular-material-theme($lightThemeC);
+    @include currentTheme($lightThemeC);
+}
+.theme4 {
+    $primaryD: mat-palette($mat-green);
+    $accentD: mat-palette($mat-blue-grey);
+    $warnD: mat-palette($mat-red);
+    $lightThemeD: mat-dark-theme($primaryD, $accentD, $warnD);
+    @include angular-material-theme($lightThemeD);
+}
+*/
+.theme1 {
+  $custom-primary: mat-palette($mat-deep-purple);
+  $custom-accent: mat-palette($mat-pink);
+  $custom-theme: mat-light-theme($custom-primary, $custom-accent);
+  @include angular-material-theme($custom-theme);
+  @include angular-material-theme($custom-theme);
+  @include currentTheme($custom-theme);
+
+}
+
+.theme2 {
+  $custom-primary: mat-palette($mat-yellow);
+  $custom-accent: mat-palette($mat-pink, 200);
+  $custom-theme: mat-dark-theme($custom-primary, $custom-accent);
+  @include angular-material-theme($custom-theme);
+  @include angular-material-theme($custom-theme);
+  @include currentTheme($custom-theme);
+}
+
+.theme3 {
+  $custom-primary: mat-palette($mat-green);
+  $custom-accent: mat-palette($mat-pink, 200);
+  $custom-theme: mat-dark-theme($custom-primary, $custom-accent);
+  @include angular-material-theme($custom-theme);
+ @include angular-material-theme($custom-theme);
+ @include currentTheme($custom-theme);
+
+
+}
+
+.theme4 {
+  $custom-primary: mat-palette($mat-red);
+  $custom-accent: mat-palette($mat-pink, 200);
+  $custom-theme: mat-dark-theme($custom-primary, $custom-accent);
+  @include angular-material-theme($custom-theme);
+  @include angular-material-theme($custom-theme);
+  @include currentTheme($custom-theme);
+}

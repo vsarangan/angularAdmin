@@ -1,0 +1,40 @@
+<!-- multiple  :) -->
+<!-- <app-otpcomp [otpsize]="initialCount" [showlabel]="true" [showresend]="true"  [allow]="'number'"></app-otpcomp> -->
+  <!-- password with auto send -->
+<!-- <app-otpcomp [otpsize]="initialCount"   [showlabel]="true" [showresend]="true"></app-otpcomp> -->
+<!-- password with no auto send -->
+<!-- <app-otpcomp [otpsize]="initialCount" [showKeytype]="'number'" [showlabel]="true" [showresend]="true" [autoSubmit]="true"></app-otpcomp> -->
+<!-- number with auto send -->
+<!-- <app-otpcomp [otpsize]="initialCount" [showKeytype]="'number'" [showlabel]="true" [showresend]="true"></app-otpcomp> -->
+<!-- number with no auto send -->
+
+
+<!-- Single  :) -->
+<!-- <app-otpcomp [otpsize]="initialCount" [showSingle]="true" [placelabel]="'Enter number Password'" [showKeytype]="'number'" [showlabel]="true" [showresend]="true" ></app-otpcomp> -->
+<!-- number  -->
+<!-- <app-otpcomp [otpsize]="initialCount" [showSingle]="true" [placelabel]="'Enter Password'" [showlabel]="true" [showresend]="true"></app-otpcomp> -->
+<!-- password  -->
+
+
+<mat-card class="cardmg">
+  <mat-card-content>
+    <h3>First Method</h3>
+    <form class="example-form" [formGroup]="form" (ngSubmit)="onsubmit(form)">
+      <mat-form-field>
+        <input matInput fxFill type="text" id="username" value="sarangan" placeholder="User Name" formControlName="username">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput fxFill type="text" id="password" value="9677528143" placeholder="Phone Number" formControlName="phonenumber">
+      </mat-form-field>
+      <app-otpcomp [parent]="form" [otpsize]="initialCount" [showKeytype]="'number'" [showlabel]="true" [allow]="'number'" [showresend]="true" [name]="'Pinpad'" [autoSubmit]="true"></app-otpcomp>
+<!--
+      <app-otpcomp [parent]="form" [otpsize]="7" [showKeytype]="'number'" [showlabel]="true" [allow]="'number'" [showresend]="true"
+        [name]="'Pinpad1'" [autoSubmit]="true"></app-otpcomp>
+        <app-otpcomp [parent]="form" [otpsize]="5" [showKeytype]="" [showlabel]="true" [allow]="'number'" [showresend]="true"
+          [name]="'Pinpad2'" [autoSubmit]="true"></app-otpcomp>
+          <app-otpcomp [parent]="form" [otpsize]="6" [showKeytype]="" [showlabel]="true" [allow]="'alpha'" [showresend]="true" [name]="'Pinpad3'"
+            [autoSubmit]="true"></app-otpcomp> -->
+      <button type='submit' mat-raised-button color="primary" >GO</button>
+    </form>
+  </mat-card-content>
+</mat-card>

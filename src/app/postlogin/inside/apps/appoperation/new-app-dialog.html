@@ -1,0 +1,19 @@
+<form [formGroup]="form" (ngSubmit)="saveForm(form)">
+    <h1 mat-dialog-title>Profile Management</h1>
+    <mat-dialog-content>
+        <mat-form-field class="example-full-width">
+<input matInput formControlName="firstname" placeholder="First Name" autofocus>
+
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput formControlName="lastname" placeholder="Last Name">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Description" formControlName="description"></textarea>
+        </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button color="primary" type="submit">Update</button>
+        <button mat-button type="button" mat-dialog-close>Cancel</button>
+    </mat-dialog-actions>
+</form>

@@ -1,0 +1,64 @@
+<mat-sidenav-container fullscreen>
+
+    <mat-toolbar color="primary"  class="boxshadow">
+        <span class="logoheading">TENS {{ 'admin' | translate}}</span>
+        <span class="example-spacer"></span>
+<button mat-icon-button [matMenuTriggerFor]="languageMenu">
+  <mat-icon>language</mat-icon>
+</button>
+<mat-menu #languageMenu="matMenu">
+  <button mat-menu-item (click)="translate.use('tn')"> Tamil </button>
+  <button mat-menu-item (click)="translate.use('en')"> English </button>
+  <button mat-menu-item (click)="translate.use('fr')"> French </button>
+</mat-menu>
+    </mat-toolbar>
+    <div fxLayout="row" fxLayoutAlign="center center" class="center-div">
+        <mat-card class="cardtop lgdesign" [customanimationsingle]="'bounce'">
+            <mat-toolbar class="bldesign" color="primary">
+
+                <div class="mat-toolbar-tools">
+                    <h2>
+                        <span class="lgheading">{{ 'signin' | translate}}</span>
+                    </h2>
+                </div>
+            </mat-toolbar>
+            <form class="example-form" [formGroup]="form" (ngSubmit)="onLogin(form)" novalidate>
+                <mat-card-content style="height: 113px;" fxLayout="column" fxLayoutAlign="start stretch">
+                    <mat-input-container style="margin-top: -30px;" class="example-full-width">
+
+<input matInput fxFill type="text" id="username" placeholder="User Name" value="" formControlName="username" required>
+
+
+                        <mat-error *ngIf="!form.get('username').valid && form.get('username').touched"> Please Enter User Name (Minimum 6 Characters)</mat-error>
+                    </mat-input-container>
+                    <mat-input-container style="margin-top: 11px;" class="example-full-width">
+
+                        <input matInput fxFill type="password" id="password" placeholder="Password" value="" formControlName="password" required>
+                        <mat-error *ngIf="!form.get('password').valid && form.get('password').touched"> Please Enter Password (Minimum 6 Characters)</mat-error>
+                    </mat-input-container>
+
+
+                </mat-card-content>
+                <mat-card-actions class="lgbtn" fxLayout="column" fxLayoutAlign="start start">
+
+                    <button type='submit' mat-raised-button color="primary" [disabled]="!form.valid">GO</button>
+                </mat-card-actions>
+            </form>
+        </mat-card>
+
+    </div>
+
+    <mat-toolbar class="logoheading fotterdown" color="primary">
+        <div class="rightside">
+            <span class="fs12">2017 - 2018 {{ 'copyright' | translate}} Tagit Pte Ltd</span>
+        </div>
+        <span class="example-spacer"></span>
+        <div class="rightside">
+            <button class="fs12" mat-button [matMenuTriggerFor]="helpMenu"><mat-icon class="fs12">expand_less</mat-icon> {{ 'help' | translate}}</button>
+        </div>
+    </mat-toolbar>
+
+    <mat-menu #helpMenu="matMenu">
+        <button mat-menu-item> {{ 'aboutus' | translate}}</button>
+    </mat-menu>
+</mat-sidenav-container>

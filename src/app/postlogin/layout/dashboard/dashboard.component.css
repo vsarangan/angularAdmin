@@ -1,0 +1,116 @@
+        mat-toolbar#headerfixed {
+          position: fixed;
+          z-index: 9;
+        }
+
+        .fl {
+          float: left;
+        }
+
+        .headericon {
+          float: right;
+          position: fixed;
+          right: 0;
+        }
+
+        .boxshadow {
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
+        }
+
+        .commonsize {
+          min-height: calc(100vh - 250px) !important;
+        }
+
+        .logoheading {
+          font-size: 17px;
+          font-weight: bolder;
+        }
+
+        .example-spacer {
+          flex: 1 1 auto;
+        }
+
+        .boxshadowsidebar {
+          overflow: hidden;
+          box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, .3);
+        }
+
+        ::ng-deep .mat-drawer-content {
+       overflow: hidden !important;
+        }
+
+        /* color Theme */
+
+        ::ng-deep .docs-theme-picker-menu [mat-menu-item] {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+          padding: 0;
+          overflow: hidden;
+        }
+
+        ::ng-deep .docs-theme-picker-menu .docs-theme-picker-swatch {
+          position: relative;
+          width: 36px;
+          height: 36px;
+          margin: 6px;
+          border-radius: 50%;
+          overflow: hidden;
+        }
+
+        ::ng-deep .mat-menu-content {
+          padding: 8px;
+        }
+
+        ::ng-deep .docs-theme-picker-menu [mat-menu-item] {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+          padding: 0;
+          overflow: hidden;
+        }
+
+        .mat-menu-item .mat-icon:not([color]), .mat-menu-item-submenu-trigger::after {
+          color: rgba(0, 0, 0, 0.54);
+        }
+
+        ::ng-deep .docs-theme-picker-menu .docs-theme-picker-swatch .docs-theme-chosen-icon {
+          color: #fff;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+        }
+
+        ::ng-deep .docs-theme-picker-menu .docs-theme-picker-primary {
+          width: 100%;
+          height: 100%;
+        }
+
+        .mat-icon.colorwhite.docs-theme-chosen-icon.mat-icon.material-icons.ng-star-inserted {
+          color: white;
+        }
+
+        /*.mobileactive {
+          width: 10% !important;
+        }
+
+        .tabactive {
+          width: 10% !important;
+        }*/
+
+        ::ng-deep .mat-drawer-content {
+          width: 100%;
+        }
+
+        .folded:not(.unfolded) {
+          width: 64px;
+          min-width: 64px;
+          max-width: 64px;
+        }
+
+        .contentcustom {
+          position: absolute;
+          left: -138px;
+        }

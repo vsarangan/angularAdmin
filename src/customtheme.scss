@@ -1,0 +1,36 @@
+@import '~@angular/material/theming';
+@import 'app/candy-carousel/candy-carousel-theme.scss';
+
+@include mat-core();
+.theme1 {
+    $custom-primary: mat-palette($mat-deep-purple);
+    $custom-accent: mat-palette($mat-pink);
+    $custom-theme: mat-light-theme($custom-primary, $custom-accent);
+    @include angular-material-theme($custom-theme);
+}
+
+.theme2 {
+    $custom-primary: mat-palette($mat-yellow);
+    $custom-accent: mat-palette($mat-pink, 200);
+    $custom-theme: mat-dark-theme($custom-primary, $custom-accent);
+    @include angular-material-theme($custom-theme);
+}
+
+.theme3 {
+    $custom-primary: mat-palette($mat-green);
+    $custom-accent: mat-palette($mat-pink, 200);
+    $custom-theme: mat-dark-theme($custom-primary, $custom-accent);
+    @include angular-material-theme($custom-theme);
+}
+
+.theme4 {
+    $custom-primary: mat-palette($mat-red);
+    $custom-accent: mat-palette($mat-pink, 200);
+    $custom-theme: mat-dark-theme($custom-primary, $custom-accent);
+    @include angular-material-theme($custom-theme);
+}
+
+
+
+
+

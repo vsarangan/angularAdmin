@@ -1,0 +1,10 @@
+<mat-card class="cardmg">
+  <mat-card-content>
+    <nav mat-tab-nav-bar>
+      <a mat-tab-link *ngFor="let tab of routeLinks; let i = index;" [tiggerdirective]="tab.index" [routerLink]="tab.link" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive" (click)="FunCalled(tab)"  [routerLinkActiveOptions]="{exact: true}">
+      <mat-icon>{{tab.icons}}</mat-icon><span class="designtabhead"> {{tab.label}}</span>
+      </a>
+    </nav>
+    <router-outlet></router-outlet>
+  </mat-card-content>
+</mat-card>

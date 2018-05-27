@@ -1,0 +1,81 @@
+.appsdesign {
+  display: block;
+}
+
+.example-card {
+  width: 209px;
+  height: 223px;
+}
+
+.example-card-height {
+  width: 215px;
+  padding: 0;
+  margin-left: 11px;
+  border-left: 4px solid #673ab7;
+  padding: 13px;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12)
+}
+
+.inblock {
+  display: inline-block;
+  margin: 0;
+  font-weight: bolder
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.devby {
+  font-size: 9px;
+  color: black;
+}
+
+.iconoption {
+  position: relative;
+  right: -47px;
+  width: 72px;
+}
+
+.mdheader {
+  width: 148px;
+}
+
+.cardouterdesign {
+  padding: 0px;
+  margin-left: 11px;
+  float: left;
+  margin-top: 7px;
+  margin-bottom: 11px;
+}
+
+.tenslogdesign {
+  background: #673ab7;
+  padding-left: 63px;
+  padding-top: 41px;
+  padding-bottom: 65px;
+  color: white;
+  font-weight: bold;
+}
+
+.appname {
+  margin-left: 4px;
+  height: 54px;
+  padding: 0px;
+}
+
+.appdesc {
+  position: relative;
+  left: -14px;
+  margin-right: 23px;
+  padding-left: 26px;
+  padding-right: 23px;
+  margin-top: 9px;
+}
+
+a.cardhref {
+  text-decoration: none;
+  width: 100%;
+  background: #673ab7;
+}

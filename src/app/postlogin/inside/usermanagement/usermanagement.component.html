@@ -1,0 +1,59 @@
+<mat-card class="cardmg">
+  <mat-card-content>
+  <h3>First Method</h3>
+  <form class="example-form" [formGroup]="form" (ngSubmit)="onsubmit(form)">
+    <mat-input-container>
+    <input matInput fxFill type="text" id="username" placeholder="User Name"  formControlName="username" >
+  </mat-input-container>
+  <mat-input-container>
+    <input matInput fxFill type="text" id="username" placeholder="Phone Number" formControlName="phonenumber" >
+    </mat-input-container>
+    <mat-input-container>
+    <input matInput fxFill type="text" id="username" placeholder="User Mail"  formControlName="emailid" >
+      </mat-input-container>
+      <app-formmanage></app-formmanage>
+    <button type='submit' mat-raised-button color="primary" [disabled]="!form.valid">GO</button>
+  </form>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="cardmg">
+  <mat-card-content>
+    <h3>Second Method</h3>
+    <form class="example-form" [formGroup]="form1" (ngSubmit)="onsubmit(form)">
+       <mat-input-container>
+        <input matInput fxFill type="text"  placeholder="User Name" formControlName="username1">
+      </mat-input-container>
+      <mat-input-container>
+        <input matInput fxFill type="text"  placeholder="Phone Number" formControlName="phonenumber1">
+      </mat-input-container>
+      <mat-input-container>
+        <input matInput fxFill type="text"  placeholder="User Mail" formControlName="emailid1">
+      </mat-input-container>
+      <app-formmanage1 formControlName="form2"></app-formmanage1>
+      <button type='submit' mat-raised-button color="primary" [disabled]="!form1.valid">GO</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="cardmg">
+  <mat-card-content>
+    <h3>Template Driven Way</h3>
+   <app-templatedriven></app-templatedriven>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="cardmg">
+  <mat-card-content>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of options" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+  </mat-card-content>
+</mat-card>

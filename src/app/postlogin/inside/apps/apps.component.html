@@ -1,0 +1,25 @@
+<div style="margin-top: 20px;min-height:calc(100vh - 148px);">
+<app-singleton></app-singleton>
+    <mat-card class="example-card cardouterdesign" *ngFor="let app of apps" >
+        <!-- <mat-card-title class="tenslogdesign" color="primary">TENS</mat-card-title>-->
+        <a  mat-raised-button class="cardhref"  (click)="notificationmanager(app)"><mat-toolbar class="tenslogdesign">
+            TENS
+        </mat-toolbar></a>
+        <mat-card-header class="appname">
+           <mat-card-title class="mdheader">
+                <h3 style="font-size:14px;">{{app.appName}}</h3>
+            </mat-card-title>
+            <mat-card-actions>
+                <button mat-icon-button color="primary"><mat-icon class="fs18">settings</mat-icon></button>
+                <button mat-icon-button color="primary"><mat-icon class="fs18">delete</mat-icon></button>
+            </mat-card-actions>
+            <mat-card-subtitle class="devby">Dev by:id= {{app.appCreatedBy}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="appdesc">
+            <p style="font-size: 12px;">
+                {{app.appDesc}}
+            </p>
+        </mat-card-content>
+
+    </mat-card>
+</div>

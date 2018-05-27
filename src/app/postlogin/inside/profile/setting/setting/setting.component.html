@@ -1,0 +1,20 @@
+<form [formGroup]="rForm" (ngSubmit)="addPost(rForm)">
+  <div class="form-container">
+    <div class="row columns">
+      <h1>My Reactive Form</h1>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="User Name" name="name" formControlName="name" (click)="requiredChange($event)">
+        <mat-error *ngIf="rForm.controls['name'].errors?.required"> Please Enter User Name </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Leave a comment" name="comment" formControlName="comment" (click)="requiredChange($event)"></textarea>
+    <mat-error *ngIf="rForm.controls['comment'].errors?.required"> Please Enter Comment </mat-error>
+      </mat-form-field>
+      <label class="example-margin">Align:</label>
+      <mat-checkbox class="example-margin"  formControlName="secondCtrl">Checked</mat-checkbox>
+
+      <input type="submit"  class="button expanded" value="Submit Form">
+    </div>
+  </div>
+</form>

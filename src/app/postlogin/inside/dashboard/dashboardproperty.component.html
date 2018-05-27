@@ -1,0 +1,99 @@
+<perfect-scrollbar style="max-height:calc(100vh - 193px)" [config]="config">
+<div class="main-content">
+<gridster [options]="gridsterOptions" [draggableOptions]="gridsterDraggableOptions" (reflow)="onReflow($event)" (optionsChange)="optionsChange($event)"
+  #gridster1 class="dashboard">
+  <gridster-item *ngFor="let widget of widgets; let indx = index" #itemComp [options]="itemOptions" [dragAndDrop]="widget.dragAndDrop"
+    [resizable]="widget.resizable" [(x)]="widget.x" [(y)]="widget.y" [(xSm)]="widget.xSm" [(ySm)]="widget.ySm" [(xMd)]="widget.xMd"
+    [(yMd)]="widget.yMd" [(xLg)]="widget.xLg" [(yLg)]="widget.yLg" [(xXl)]="widget.xXl" [(yXl)]="widget.yXl" [(w)]="widget.w"
+    [(h)]="widget.h" (change)="itemChange($event, gridster1)">
+<div class="lessons-list" *ngIf="widget.column == 1">
+<div class="panel-heading red">
+  <h5 class="panel-title">{{ widget.title }}</h5>
+</div>
+<div fxLayout="row" fxLayoutAlign="space-around center">
+  <ngx-charts-pie-grid (window:resize)="onResize($event)" [view]="view" [scheme]="colorScheme" [results]="single" (select)="onSelect($event)">
+  </ngx-charts-pie-grid>
+</div>
+</div>
+<div class="lessons-list" *ngIf="widget.column == 2">
+  <div class="panel-heading red">
+    <h5 class="panel-title">{{ widget.title }}</h5>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-around center">
+    <ngx-charts-bar-vertical-2d [view]="view" [scheme]="colorScheme" [results]="multi" [gradient]="gradient" [xAxis]="showXAxis"
+      [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel" (select)="onSelect($event)">
+    </ngx-charts-bar-vertical-2d>
+  </div>
+</div>
+<div class="lessons-list" *ngIf="widget.column == 4">
+  <div class="panel-heading red">
+    <h5 class="panel-title">
+      <div>
+        <mat-icon [matTooltip]="widget.tooltip">{{widget.icons}}</mat-icon>
+        <span class="designtabhead white">{{ widget.title }}</span>
+      </div>
+    </h5>
+  </div>
+  <div style="margin-top:7px;">
+    <div *ngFor="let demo of widget.status;">
+        <mat-card class="example-card" style="float:left">
+          <mat-card-content>
+          <div>
+            <div class="fl designstatus"><mat-icon matTooltip="Active Message">notifications_active</mat-icon><span class="alignmsg">{{demo.count}}</span></div>
+            <div class="fl designstatus"><mat-icon matTooltip="InActive Message">notifications_off</mat-icon> <span class="alignmsg">{{demo.inactive}}</span></div>
+            <div class="fl designstatus"><mat-icon matTooltip="Scheduled Message">schedule</mat-icon><span class="alignmsg">{{demo.scheduled}}</span></div>
+          </div>
+          </mat-card-content>
+          <mat-card-actions>
+          <a mat-raised-button class="cardhref">
+            <mat-toolbar class="tenslogdesign">
+            <div mat-card-avatar class="example-header-image">
+              <mat-icon class="icons">{{demo.icon}}</mat-icon>
+            </div> {{demo.msg}}
+            </mat-toolbar>
+          </a>
+          </mat-card-actions>
+        </mat-card>
+    </div>
+  </div>
+</div>
+<div class="lessons-list" *ngIf="widget.column == 3">
+  <div class="panel-heading red">
+    <h5 class="panel-title">
+      <div>
+        <mat-icon [matTooltip]="widget.tooltip">{{widget.icons}}</mat-icon>
+        <span class="designtabhead white">{{ widget.title }}</span>
+      </div>
+    </h5>
+  </div>
+  <div style="margin-top:7px;">
+    <div *ngFor="let demo of widget.status;">
+      <div class="fl">
+        <span class="designtabhead w16 fl">{{demo.success}}</span>
+        <mat-progress-bar class="statusbar" mode="determinate" [value]="demo.successprocess"></mat-progress-bar>
+      </div>
+      <div class="percent">
+        <span>{{demo.successprocess +'%'}}</span>
+      </div>
+      <div class="fl">
+        <span class="designtabhead w16 fl">{{demo.failure}}</span>
+        <mat-progress-bar class="statusbar" mode="determinate" [value]="demo.failureprocess"></mat-progress-bar>
+      </div>
+      <div class="percent">
+        <span>{{demo.failureprocess +'%'}}</span>
+      </div>
+      <div class="fl">
+        <span class="designtabhead w16 fl">{{demo.pending}}</span>
+        <mat-progress-bar class="statusbar" mode="determinate" [value]="demo.pendingprocess"></mat-progress-bar>
+      </div>
+      <div class="percent">
+        <span>{{demo.pendingprocess +'%'}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+</gridster-item>
+  </gridster>
+</div>
+</perfect-scrollbar>

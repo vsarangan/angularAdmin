@@ -1,0 +1,73 @@
+<mat-sidenav-container fullscreen class="themeapply" [ngClass]="themeapply" fxLayout="row">
+  <mat-sidenav #sidenav mode="{{media.isActive('gt-sm') ? 'side' : 'over'}}" class="app-sidenav boxshadowsidebar"  [opened]="isLargeScreen()" >
+    <app-sidebar></app-sidebar>
+  </mat-sidenav>
+  <mat-sidenav-content>
+  <mat-toolbar color="primary" id="headerfixed" class="boxshadow">
+    <button mat-icon-button (click)="dataclickfn1()">  click  </button>
+    <button mat-icon-button (click)="sidenavtoggle()">
+      <mat-icon class="mat-24">menu</mat-icon>
+    </button>￼
+    <span class="logoheading">TENS {{ 'admin' | translate}}</span>
+    <span class="example-spacer"></span>
+    <div class="headericon">
+    <button class="fl" mat-icon-button [matMenuTriggerFor]="languageMenu">
+      <mat-icon>language</mat-icon>
+    </button>
+    <mat-menu #languageMenu="matMenu">
+      <button mat-menu-item (click)="translate.use('tn')"> Tamil </button>
+      <button mat-menu-item (click)="translate.use('en')"> English </button>
+      <button mat-menu-item (click)="translate.use('fr')"> French </button>
+    </mat-menu>
+    <div class="fl rightside">
+      <button mat-icon-button [matMenuTriggerFor]="colorpicker">
+        <mat-icon>format_color_fill</mat-icon>
+      </button>
+    </div>
+    <div class="fl rightside">
+      <button mat-icon-button [matMenuTriggerFor]="appMenu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </div>
+    </div>
+  </mat-toolbar>
+  <mat-menu #appMenu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>settings</mat-icon> Settings </button>
+    <button mat-menu-item>
+      <mat-icon>help</mat-icon> Help </button>
+    <a mat-menu-item (click)="logoutuser()">
+      <mat-icon>power_settings_new</mat-icon>Logout </a>
+  </mat-menu>
+  <mat-menu #colorpicker="matMenu" class="docs-theme-picker-menu">
+    <div>
+      <mat-grid-list class="mat-grid-list" cols="2" style="padding-bottom: calc(((2 * ((50% - 0.5px) * 1)) + 0px) + 1px);">
+        <mat-grid-tile *ngFor="let themes of theme" class="mat-grid-tile" style="left: 0px; width: calc(((50% - 0.5px) * 1) + 0px); margin-top: 0px; padding-top: calc(((50% - 0.5px) * 1) + 0px);">
+          <div class="mat-menu-item" mat-menu-item="" role="menuitem" tabindex="0" [matTooltip]="themes.property" matTooltipPosition="above"
+            aria-disabled="false">
+            <div class="docs-theme-picker-swatch" (click)="addclassactive(themes)">
+              <div *ngIf="selectedItem == themes">
+                <mat-icon class="colorwhite docs-theme-chosen-icon mat-icon material-icons ng-star-inserted " role="img" aria-hidden="true">check_circle</mat-icon>
+              </div>
+              <div class="docs-theme-picker-primary" [style.background-color]="themes.color"></div>
+            </div>
+          </div>
+
+        </mat-grid-tile>
+      </mat-grid-list>
+
+    </div>
+  </mat-menu>
+
+    <perfect-scrollbar style="margin-top: 64px;max-height:calc(100vh - 64px)" class="mxs" [config]="config" >
+    <div style="margin-top: 20px;min-height:calc(100vh - 148px);">
+ <div [customanimation]="'bounce'">
+   <app-breadcrumb></app-breadcrumb>
+  <router-outlet ></router-outlet>
+</div>
+
+      </div>
+        <app-fotter></app-fotter>
+    </perfect-scrollbar>
+</mat-sidenav-content>
+</mat-sidenav-container>

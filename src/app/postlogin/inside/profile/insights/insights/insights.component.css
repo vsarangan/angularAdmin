@@ -1,0 +1,17 @@
+.cardmg {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+/* ngx-datatable.material.ngx-datatable.fixed-header.ng-star-inserted {
+  margin-top: 28px;
+} */
+
+.designtabhead {
+  position: relative;
+  top: -6px;
+  left: 7px;
+  font-weight: bolder;
+  font-size: 13px;
+  color: black;
+}

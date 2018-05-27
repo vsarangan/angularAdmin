@@ -1,0 +1,135 @@
+ <!-- <div *ngIf="singlefield == true">
+<div *ngIf="showsinlgeKeytype == 'number'; else singlepassword" #multiplefield>
+  <div fxLayout="row" fxLayoutAlign="space-around center" >
+    <mat-form-field class="example-full-width" >
+      <input matInput type="password" [placeholder]="placelabel" pattern="^[0-9]*$"  accept="[^0-9]" step="1" [maxLength]="otpsize" otpsingle>
+    </mat-form-field>
+  </div>
+  <label for="showoption" *ngIf="showlabel">
+    <a mat-icon-button  (createbridge)="eventcapturing($event)" otpsingle>
+      <mat-icon class="mat-24">{{fonticon}}</mat-icon>
+    </a>
+    {{fontlabel}}
+  </label>
+  <label for="showoption" *ngIf="showresend">
+    <a [routerLink]="" (click)="onGoToPage1()"> Resend</a>
+  </label>
+</div>
+
+<ng-template #singlepassword>
+  <div fxLayout="row" fxLayoutAlign="space-around center">
+    <mat-form-field class="example-full-width">
+      <input matInput type="password" [placeholder]="placelabel" pattern="^[a-zA-Z0-9]*$"  accept="[^\w]"   [maxLength]="otpsize" otpsingle>
+      </mat-form-field>
+  </div>
+  <label for="showoption" *ngIf="showlabel">
+    <a mat-icon-button  (createbridge)="eventcapturing($event)" otpsingle>
+      <mat-icon class="mat-24">{{fonticon}}</mat-icon>
+    </a>
+    {{fontlabel}}
+  </label>
+  <label for="showoption" *ngIf="showresend">
+    <a [routerLink]="" (click)="onGoToPage2()"> Resend</a>
+  </label>
+</ng-template>
+</div>
+<div *ngIf="singlefield == false">
+<div *ngIf="showmultipleKeytype == 'number'; else multiplepassword" >
+<div fxLayout="row" fxLayoutAlign="space-around center" [id]="autosubmitdetail">
+<div *ngFor="let item of totalinput" class="divstyle" otpdirective>
+<input type="number" class="designotp" maxlength="1" pattern="^[0-9]*$" minlength="1" accept="[^0-9]" step="1">
+</div>
+</div>
+<label for="showoption" *ngIf="showlabel">
+  <a mat-icon-button otpdirective id="contidion" (createbridge)="eventcapturing($event)">
+    <mat-icon class="mat-24">{{fonticon}}</mat-icon>
+  </a>
+  {{fontlabel}}
+</label>
+<label for="showoption" *ngIf="showresend">
+  <a [routerLink]="" (click)="onGoToPage3()"> Resend</a>
+</label>
+</div>
+<ng-template #multiplepassword>
+  <div fxLayout="row" fxLayoutAlign="space-around center" [id]="autosubmitdetail">
+    <div *ngFor="let item of totalinput" class="divstyle" otppassword>
+      <input type="password" *ngIf="allow === 'number'" class="designotp" maxlength="1" pattern="^[0-9]*$" minlength="1" accept="[^0-9]" >
+      <input type="password" *ngIf="allow === 'alpha'" class="designotp" maxlength="1"  pattern="^[a-zA-Z]*$" minlength="1"  accept="[^a-zA-Z]">
+      <input type="password" *ngIf="allow === 'both'"  class="designotp" maxlength="1" pattern="^[a-zA-Z0-9]*$" minlength="1" accept="[^\w]">
+    </div>
+  </div>
+  <label for="showoption" *ngIf="showlabel">
+    <a mat-icon-button otppassword id="contidion" (createbridge)="eventcapturing($event)">
+      <mat-icon class="mat-24">{{fonticon}}</mat-icon>
+    </a>
+    {{fontlabel}}
+  </label>
+  <label for="showoption" *ngIf="showresend">
+    <a [routerLink]="" (click)="onGoToPage4()"> Resend</a>
+  </label>
+</ng-template>
+</div> -->
+<!-- <div [formGroup]="parent"> -->
+<!-- <div *ngIf="singlefield == false">
+  <div *ngIf="showmultipleKeytype == 'number'">
+    <div fxLayout="row" fxLayoutAlign="space-around center" [id]="autosubmitdetail">
+      <div *ngFor="let item of totalinput" class="divstyle" otpdirective>
+        <input type="number" #otppad required class="designotp" name="sarangan" maxlength="1" pattern="^[0-9]*$" minlength="1" accept="[^0-9]" step="1">
+      </div>
+    </div>
+    <label for="showoption" *ngIf="showlabel">
+      <a mat-icon-button otpdirective id="contidion" (createbridge)="eventcapturing($event)">
+        <mat-icon class="mat-24">{{fonticon}}</mat-icon>
+      </a>
+      {{fontlabel}}
+    </label>
+    <label for="showoption" *ngIf="showresend">
+      <a [routerLink]="" (click)="onGoToPage3()"> Resend</a>
+    </label>
+  </div>
+</div> -->
+<!-- <input required [formControl]="controlname" [id]="name" type="hidden" [value]="inpvalue"  [(ngModel)]="name" [name]="name" /> -->
+<!-- <mat-error *ngIf="parent.get('name').valid">
+  Otp is Required
+</mat-error> -->
+<!-- </div> -->
+  <!-- <input type="text"  [id]="name"  [value]="inpvalue" [name]="name" [formControl]="controlname" > -->
+ <div [formGroup]="parent"  #formDir="ngForm">
+    <div *ngIf="singlefield == false">
+      <div *ngIf="showmultipleKeytype === 'number'; else multiplepassword">
+        <div class="mxPinpadWrapper" fxLayout="row" fxLayoutAlign="space-around center" >
+          <div *ngFor="let item of totalinput" class="divstyle" otpdirective [id]="datasname">
+            <input type="number" alt="true" class="designotp mxPinpad" [name]="datasname"  maxlength="1" minlength="1" pattern="[0-9]*" step="1" autocomplete="off"
+              accept="[^0-9]">
+          </div>
+        </div>
+        </div>
+        <ng-template #multiplepassword>
+          <div class="mxPinpadWrapper" fxLayout="row" fxLayoutAlign="space-around center">
+            <div *ngFor="let item of totalinput" class="divstyle" otpdirective [id]="datasname">
+              <input type="password" *ngIf="allow === 'number'" [name]="datasname"  class="designotp" maxlength="1" pattern="^[0-9]*$" minlength="1" accept="[^0-9]">
+              <input type="password" *ngIf="allow === 'alpha'"  [name]="datasname" class="designotp" maxlength="1" pattern="^[a-zA-Z]*$" minlength="1" accept="[^a-zA-Z]">
+              <input type="password" *ngIf="allow === 'both'" [name]="datasname" class="designotp" maxlength="1" pattern="^[a-zA-Z0-9]*$" minlength="1" accept="[^a-zA-Z0-9]">
+            </div>
+          </div>
+        </ng-template>
+
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <div class="mxLeftText">
+            <label for="showoption" *ngIf="showResend" >
+              <a [routerLink]="" (click)="resendOtp()" id="datasname"> Resend</a>
+            </label>
+          </div>
+
+          <div class="mxRightText">
+            <label for="showoption" *ngIf="showlabel">
+              <a mat-icon-button   (click)="eventcapturing($event)"  [id]="datasname">
+                <mat-icon class="mat-24">{{fonticon}}</mat-icon>
+              </a>
+              {{fontlabel}}
+            </label>
+          </div>
+        </div>
+
+    </div>
+</div>

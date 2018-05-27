@@ -1,0 +1,58 @@
+.profileheight {
+  height: 200px;
+}
+
+md-sidenav {
+  width: 260px !important;
+}
+
+#colorwhite {
+  color: white;
+}
+
+.aligndetail {
+  position: relative;
+  top: 43px;
+  left: -37px;
+}
+
+md-toolbar *, md-toolbar :after, md-toolbar :before {
+  box-sizing: border-box;
+}
+
+i.material-icons {
+  margin-right: 9px;
+}
+
+.colorred {
+  color: red;
+}
+
+.avatarclass {
+  width: 88px !important;
+  height: 86px !important;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  top: -30px;
+  left: 45px;
+}
+
+.backimg {
+  background-image: url("../../../../assets/background1.jpg");
+  height: 175px;
+  position: relative;
+}
+
+.mat-body-2.name {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* a.mat-list-item.active {
+  background: #5c1e71;
+}
+
+a.mat-list-item.active:hover {
+  background: #f1475b;
+} */

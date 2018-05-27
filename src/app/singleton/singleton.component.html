@@ -1,0 +1,10 @@
+<div *ngIf="loginStatus == 'show'">
+<div class="example-card-height">
+  {{ 'nounsucess' | translate}}:
+  <p class="inblock">{{loginerror}}</p>
+</div>
+<div class="example-card-height">
+  {{'lastlogin' | translate}}:
+  <p class="inblock">{{logindate | date:"dd/MM/yyyy hh:mm"}}</p>
+</div>
+</div>

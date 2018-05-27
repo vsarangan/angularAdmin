@@ -1,0 +1,49 @@
+<mat-card class="cardmg">
+  <mat-card-content>
+    <mat-tab-group>
+      <mat-tab>
+        <ng-template mat-tab-label>
+        <mat-icon>donut_small</mat-icon><span class="designtabhead">Device Sumarry Report</span>
+        </ng-template>
+        <div fxLayout="row" fxLayoutAlign="space-around center" *ngIf="showchart">
+<ngx-charts-pie-chart [view]="view" [scheme]="colorScheme" [results]="single" [legend]="showLegend" [explodeSlices]="explodeSlices"
+  [labels]="showLabels" [doughnut]="doughnut" [gradient]="gradient" (select)="onSelect($event)">
+</ngx-charts-pie-chart>
+        </div>
+
+      <div fxLayout="row" fxLayoutAlign="space-between center" style="height: 62px;">
+
+        <mat-input-container>
+          <input matInput type="text" fxFlex="100" placeholder='Type to filter the Name column...' (keyup)='updateFilter($event)' />
+        </mat-input-container>
+        <button mat-raised-button color="primary">
+          <mat-icon>add</mat-icon>New </button>
+              </div>
+    <div #tableWrapper>
+      <ngx-datatable class="material expandable" #table [columnMode]="'force'" [scrollbarH]="true" [headerHeight]="50" [footerHeight]="50"
+        [rowHeight]="'auto'" [rows]="rows" [limit]="10">
+
+        <ngx-datatable-column name="Device Category" [flexGrow]="1">
+          <ng-template let-row="row"  ngx-datatable-cell-template>
+            {{row.name}}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Regestered Device Count" [flexGrow]="1">
+          <ng-template let-row="row"  ngx-datatable-cell-template>
+            {{row.value}}
+          </ng-template>
+        </ngx-datatable-column>
+
+      </ngx-datatable>
+    </div>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon>list</mat-icon>
+          <span class="designtabhead">Device Detailed Report</span>
+        </ng-template>
+
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>

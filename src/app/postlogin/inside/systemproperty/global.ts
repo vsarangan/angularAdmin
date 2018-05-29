@@ -86,6 +86,7 @@ export class Globals {
     });
   }
 
+  
   datasendtoserver(data) {
     const finalvalue = data.join(''); // send to server
     console.log(finalvalue);

@@ -68,12 +68,12 @@ export class OTPComponent implements OnInit, AfterViewInit {
   }
   eventcapturing(e) {
     this.returneddaa = '';
-    console.log(this.returneddaa);
+    console.log(e);
     this.userchoose = e.target.offsetParent.id;
     this.returneddaa = this.glbs.userchoosedidentify(this.userchoose);
     console.log(this.returneddaa);
     const trigger = e.target || e.srcElement;
-     if (trigger.textContent === 'visibility') {
+     if (trigger.innerText === 'visibility' || trigger.innerText === 'visibility Show') {
       this.fonticon = 'visibility_off';
       this.fontlabel = 'Hide';
        this.returneddaa.forEach((element, i) => {

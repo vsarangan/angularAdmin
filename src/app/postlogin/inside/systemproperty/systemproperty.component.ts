@@ -6,7 +6,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
   styleUrls: ['./systemproperty.component.css']
 })
 export class SystemPropertyComponent implements OnInit {
-  initialCount = 2;
+  initialCount = 5;
   form: FormGroup;
   constructor(private _formBuilder: FormBuilder) {
   }

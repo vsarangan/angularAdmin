@@ -11,7 +11,7 @@ export class OTPDirective implements OnInit {
  buttons;
   length;
   number;
-
+  serviceDirecties;
  // @Output() createbridge = new EventEmitter<boolean>();
   constructor(private _el: ElementRef, private globals: Globals, private renderer: Renderer) {
     globals.totalelement.push(_el);
@@ -53,6 +53,7 @@ export class OTPDirective implements OnInit {
 
   @HostListener('keyup', ['$event']) onKeyup(e: any) {
     console.log(e);
+    this.divStyleWatch(e);
     const numberval = this.globals.specifictake(e);
     const index = numberval.indexOf(this.globals.numbers);
     const uservalue = numberval.charAt(index);
@@ -99,6 +100,25 @@ export class OTPDirective implements OnInit {
   @HostListener('drop', ['$event']) ondrop(e) {
     e.preventDefault();
   }
+  @HostListener('focusout', ['$event']) onFocusOut(e: any) {
+   // this.divStyleWatch(e);
+  }
+divStyleWatch(e) {
+  const userchoose = e.target.offsetParent.id;
+    this.serviceDirecties = this.globals.userchoosedidentify(userchoose);
+    this.serviceDirecties.forEach((element, i) => {
+      console.log(element);
+      if (element.nativeElement.children[0].type) {
+        if (element.nativeElement.children[0].value !== '') {
+          this.renderer.setElementClass(element.nativeElement, 'infoPositive', true);
+          this.renderer.setElementClass(element.nativeElement, 'infoNegative', false);
+        } else {
+          this.renderer.setElementClass(element.nativeElement, 'infoPositive', false);
+          this.renderer.setElementClass(element.nativeElement, 'infoNegative', true);
+        }
+      }
+});
+}
 }
 
 

@@ -49,8 +49,7 @@ export class SidebarComponent implements OnInit, DoCheck {
   //   }
   // ];
   constructor(private router: Router, private translate: TranslateService, public dialog: MatDialog, private routedata: ActivatedRoute, private Sideservice: SideBarService, private dash: DashboardComponent) {
-    console.log('dash', this.dash);
-    this.Sideservice.notificationside.subscribe(
+      this.Sideservice.notificationside.subscribe(
       (lang) => {
         this.firstside = lang[0];
         this.activatemenu = this.firstside[1];
@@ -72,7 +71,6 @@ export class SidebarComponent implements OnInit, DoCheck {
     this.userinfo = this.routedata.snapshot.data;
   }
   routePage(data) {
-    console.log('dashboard', this.dash);
     if (this.dash.sidenav.mode === 'over') {
       this.dash.sidenav.toggle();
     }
@@ -93,7 +91,6 @@ export class SidebarComponent implements OnInit, DoCheck {
 
    }
   onside(data) {
-    console.log(data);
   }
 
 

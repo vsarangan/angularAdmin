@@ -71,7 +71,7 @@ export class AccountsComponent implements OnInit  {
       link: 'dashboard/insights'
     }
   ];
-
+  myText = 'A String from the Component';
   constructor(private router: Router) {
 
   }

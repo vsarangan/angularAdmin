@@ -1,15 +1,19 @@
 <mat-horizontal-stepper [linear]="true" #stepper="matHorizontalStepper" (selectionChange)="stepperChange()" [customanimation]="'jackInTheBox'">
   <mat-step [stepControl]="myFormGroup">
   <ng-template matStepLabel>Fill out your name</ng-template>
-  <app-form  (notify)='onNotify($event)' ></app-form>
+  <app-form #templateNmae (notify)='onNotify($event)' ></app-form>
   <div>
-    <button mat-button mat-raised-button matStepperNext>Next</button>
+<button mat-button mat-raised-button matStepperNext (click)="emitData(myFormGroup.value)">Next</button>
   </div>
   </mat-step>
   <mat-step [stepControl]="">
     <div>
       Summa Dummy Data
     </div>
+<div class="inlineblock">user name</div>
+<div class="inlineblock1">{{dummyData.firstCtrl}}</div>
+<div class="inlineblock">Lastname name</div>
+<div class="inlineblock1">{{dummyData.secondCtrl}}</div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
   </mat-step>

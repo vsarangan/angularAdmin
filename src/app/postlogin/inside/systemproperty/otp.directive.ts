@@ -93,7 +93,12 @@ export class OTPDirective implements OnInit {
     }
   }
 
-
+  @HostListener('click', ['$event']) onClick(e) {
+    const trigger = e.target || e.srcElement;
+    if (trigger.tagName !== 'INPUT') {
+      trigger.lastElementChild.focus();
+    }
+  }
   @HostListener('paste', ['$event']) onPaste(e) {
     e.preventDefault();
   }

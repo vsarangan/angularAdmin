@@ -73,7 +73,7 @@ export class OTPComponent implements OnInit, AfterViewInit {
     this.returneddaa = this.glbs.userchoosedidentify(this.userchoose);
     console.log(this.returneddaa);
     const trigger = e.target || e.srcElement;
-     if (trigger.innerText === 'visibility' || trigger.innerText === 'visibility Show') {
+    if (trigger.innerText.slice(0, 10) === 'visibility' && trigger.innerText.slice(0, 14) !== 'visibility_off') {
       this.fonticon = 'visibility_off';
       this.fontlabel = 'Hide';
        this.returneddaa.forEach((element, i) => {

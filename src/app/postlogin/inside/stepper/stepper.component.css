@@ -1,3 +1,9 @@
 .hide {
   visibility: hidden;
 }
+.inlineblock{
+  display: inline-block;
+}
+.inlineblock1{
+background-color: bisque;
+}

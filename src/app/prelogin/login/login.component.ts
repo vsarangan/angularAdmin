@@ -45,5 +45,7 @@ export class LoginComponent implements OnInit {
     );
 
   }
-
+  getFormErrorMessage(data) {
+    console.log('data', data);
+  }
 }

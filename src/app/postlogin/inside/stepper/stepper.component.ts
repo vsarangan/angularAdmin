@@ -1,6 +1,11 @@
 import { CommonService } from './../../../services/common.service';
 import { Component, OnInit, ViewChild, Input} from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+interface LooseObject {
+  [key: string]: any;
+}
+
+
 @Component({
   selector: 'app-stepper',
   templateUrl: './stepper.component.html',
@@ -8,6 +13,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 })
 export class StepperComponent implements OnInit {
   myFormGroup: FormGroup;
+ dummyData: LooseObject = {};
   constructor(private _formBuilder: FormBuilder, private resetser: CommonService) {
    }
   ngOnInit() {
@@ -18,5 +24,8 @@ export class StepperComponent implements OnInit {
   }
   stepperChange() {
     this.resetser.scrollReset();
+  }
+  emitData(data) {
+    this.dummyData = data;
   }
 }

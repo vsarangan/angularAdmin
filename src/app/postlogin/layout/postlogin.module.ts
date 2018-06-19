@@ -27,6 +27,9 @@ import { SideBarService } from './sidebar.service';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { FromsComponent } from '../inside/stepper/steppers/forms.component';
+import { TickerComponent } from '../inside/accounts/ticker/ticker.component';
+import { TickerDirective } from '../../directives/ticker';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -53,7 +56,9 @@ import { FromsComponent } from '../inside/stepper/steppers/forms.component';
     SteppersComponent,
     FromsComponent,
     BreadcrumbComponent,
-    RotateComponent
+    RotateComponent,
+    TickerComponent,
+    TickerDirective
   ],
   exports: [AppmoduleModule, SystempropertyModule, UsermanagementModule, NgxChartsModule ],
   entryComponents: [],

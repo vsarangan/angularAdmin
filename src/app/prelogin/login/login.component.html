@@ -34,7 +34,12 @@
                     <mat-input-container style="margin-top: 11px;" class="example-full-width">
 
                         <input matInput fxFill type="password" id="password" placeholder="Password" value="" formControlName="password" required>
-                        <mat-error *ngIf="!form.get('password').valid && form.get('password').touched"> Please Enter Password (Minimum 6 Characters)</mat-error>
+<mat-error *ngIf="!form.get('password').valid && form.get('password').touched"> Please Enter Password (Minimum 6 Characters) {{getFormErrorMessage( 'exchange' )}}</mat-error>
+<mat-error *ngIf="form.get('password').valid">{{getFormErrorMessage( 'exchange1' )}}</mat-error>
+
+
+
+
                     </mat-input-container>
 
 

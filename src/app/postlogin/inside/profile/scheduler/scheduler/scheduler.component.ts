@@ -25,17 +25,17 @@ export class SchedulerComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    console.log('sdfdsf', this.clickev);
+  //  console.log('sdfdsf', this.clickev);
     this.authsample.changeMessage(this.clickev);
   }
 
   addPost(post) {
-    console.log(post);
+  //  console.log(post);
     this.description = post.description;
     this.name = post.name;
   }
   dataclickfn() {
-    console.log('onclick', this.clickev);
+   // console.log('onclick', this.clickev);
     this.clickev.nativeElement.click();
   }
 }

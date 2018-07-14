@@ -1,0 +1,32 @@
+.br {
+  border-radius: 50% !important;
+}
+.redyellow{
+  display: inline-block;
+}
+.imgresponsive {
+  background-color: #fffdfd;
+}
+::ng-deep .mat-dialog-container {
+  max-height: 95vh;
+}
+
+.mxProfilePP_lg, .mxProfilePP_md {
+  width: 60vw;
+}
+
+.mxProfilePP_xl {
+  width: 30vw;
+}
+
+.mxProfilePP_xs {
+  width: 100%;
+}
+
+.mxImgCropperArea {
+  position: relative
+}
+
+::ng-deep .mxImgCropperArea input {
+  display: block;
+}

@@ -12,6 +12,6 @@ export class SingletonComponent {
   loginStatus;
   constructor(singletonService: SingletonService, private translate: TranslateService ) {
     this.loginStatus = singletonService.loginStatus;
-    console.log(translate);
+  //  console.log(translate);
   }
 }

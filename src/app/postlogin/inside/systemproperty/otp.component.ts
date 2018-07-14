@@ -44,7 +44,7 @@ export class OTPComponent implements OnInit, AfterViewInit {
     this.glbs.totalelement = [];
     this.glbs.optData.subscribe((data: any) => {
       this.inpvalue = data;
-      console.log('sdfds' , this.name);
+    //  console.log('sdfds' , this.name);
       if (this.inpvalue === '') {
         this.showtouched = true;
       } else {
@@ -68,12 +68,17 @@ export class OTPComponent implements OnInit, AfterViewInit {
   }
   eventcapturing(e) {
     this.returneddaa = '';
-    console.log(e);
-    this.userchoose = e.target.offsetParent.id;
+  //  console.log(e);
+    if (e.target.offsetParent.id) {
+      this.userchoose = e.target.offsetParent.id;
+    } else {
+      this.userchoose = e.target.id;
+    }
     this.returneddaa = this.glbs.userchoosedidentify(this.userchoose);
-    console.log(this.returneddaa);
+  //  console.log(this.returneddaa);
     const trigger = e.target || e.srcElement;
-    if (trigger.innerText.slice(0, 10) === 'visibility' && trigger.innerText.slice(0, 14) !== 'visibility_off') {
+    const trimmedData = trigger.innerText.replace(/\s/g, '');
+    if (trimmedData.slice(0, 10) === 'visibility' && trimmedData.slice(0, 14) !== 'visibility_off') {
       this.fonticon = 'visibility_off';
       this.fontlabel = 'Hide';
        this.returneddaa.forEach((element, i) => {
@@ -117,16 +122,16 @@ export class OTPComponent implements OnInit, AfterViewInit {
   }
 
   onGoToPage1() {
-    console.log('onGoToPage1');
+   // console.log('onGoToPage1');
   }
   onGoToPage2() {
-    console.log('onGoToPage2');
+   // console.log('onGoToPage2');
   }
   onGoToPage3() {
-    console.log('onGoToPage3');
+   // console.log('onGoToPage3');
   }
   onGoToPage4() {
-    console.log('onGoToPage4');
+  //  console.log('onGoToPage4');
   }
   autosubmitprocess(data) {
     if (data) {
@@ -139,9 +144,10 @@ export class OTPComponent implements OnInit, AfterViewInit {
     alert(data);
   }
   onKey(data) {
-    console.log(data);
+   // console.log(data);
   }
   ngAfterViewInit(): void {
     this.glbs.hiddenfield = this.sidenavContainer;
   }
+
 }

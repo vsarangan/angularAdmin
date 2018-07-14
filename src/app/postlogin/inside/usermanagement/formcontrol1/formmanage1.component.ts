@@ -1,4 +1,4 @@
-import { Component, OnInit, forwardRef, HostBinding, Input} from '@angular/core';
+import { Component, OnInit, forwardRef, HostBinding, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormGroup, FormControl, FormBuilder, Validators, Validator, AbstractControl, NG_VALIDATORS, FormGroupDirective } from '@angular/forms';
 @Component({
   selector: 'app-formmanage1',
@@ -18,7 +18,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormGroup, FormControl, FormBu
   ]
 })
 export class FormManage1Component implements ControlValueAccessor, OnInit, Validator {
-   form1: FormGroup;
+  form1: FormGroup;
   formErrors = {
     'text': '',
     'select': '',
@@ -29,11 +29,11 @@ export class FormManage1Component implements ControlValueAccessor, OnInit, Valid
 
   constructor(private formBuilder: FormBuilder, private formGroupDir: FormGroupDirective) {
     console.log('constructor');
-   }
+  }
   ngOnInit() {
     console.log('oninitformdssdf');
     this.form1 = this.formBuilder.group({
-      address1: [null, [Validators.required , Validators.minLength(6)]],
+      address1: [null, [Validators.required, Validators.minLength(6)]],
       state1: [null, [Validators.required]],
       country1: [null, [Validators.required]],
       pincode1: [null, [Validators.required]]

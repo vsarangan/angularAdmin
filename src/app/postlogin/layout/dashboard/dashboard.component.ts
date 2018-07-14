@@ -53,7 +53,7 @@ export class DashboardComponent implements OnInit {
     translate.use('en');
     this.sched.messageSource.subscribe(value => {
       this.childdata = value;
-      console.log('emeiiee', this.childdata);
+  //    console.log('emeiiee', this.childdata);
     });
   }
 
@@ -67,12 +67,12 @@ export class DashboardComponent implements OnInit {
 
      this.perfectscroll.directiveRef.scrollTo(0, 0);
     });
-    console.log(this.datassss);
+ //   console.log(this.datassss);
   }
 
 
   addclassactive(data) {
-    console.log(data);
+  //  console.log(data);
     this.selectedItem = data;
     this.icon = data.active;
     this.themeapply = data.property;
@@ -127,6 +127,20 @@ export class DashboardComponent implements OnInit {
     if (this.childdata !== undefined) {
       this.childdata.nativeElement.click();
     }
+  }
+  changeOfRoutes() {
+    //  history.pushState(null, null, location.href);
+    // window.location.href += '#';
+    // const _hash = '!';
+    // // making sure we have the fruit available for juice (^__^)
+    // window.setTimeout(function () {
+    //   window.location.href += '!';
+    // }, 50);
+    // window.onhashchange = function () {
+    //   if (window.location.hash !== _hash) {
+    //     window.location.hash = _hash;
+    //   }
+    // };
   }
 
 }

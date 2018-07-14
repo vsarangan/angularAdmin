@@ -14,7 +14,7 @@ export class AnimationSingleDirective implements OnInit {
     this.sinleanimations();
   }
   sinleanimations() {
-    console.log('animationcalled');
+  //  console.log('animationcalled');
     this.element.nativeElement.classList.add(this.customanimationsingle);
     this.element.nativeElement.classList.add('animated');
     setTimeout(() => {

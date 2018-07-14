@@ -1,6 +1,10 @@
     <mat-toolbar class="mat-hue-2 mat-tall mat-default-theme backimg">
-          <img class="avatarclass" [src]="userinfo.message.userdetail.userimage">
-        <div fxLayout="column"  fxLayoutAlign="space-around center" id="colorwhite" class="aligndetail">
+<img class="avatarclass" [src]="userinfo.message.userdetail.userimage" />
+<button mat-icon-button color="primary" (click)="openDialog()">
+<mat-icon>add_circle</mat-icon>
+  </button>
+
+<div fxLayout="column" fxLayoutAlign="space-around center" id="colorwhite" class="aligndetail" style="margin-left: -39px;">
             <div class="mat-body-2 name">{{userinfo.message.userdetail.username}}</div>
             <div class="mat-body-2 mail">{{userinfo.message.userdetail.userrole}}</div>
         </div>

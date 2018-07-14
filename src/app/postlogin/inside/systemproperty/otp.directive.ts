@@ -15,7 +15,7 @@ export class OTPDirective implements OnInit {
  // @Output() createbridge = new EventEmitter<boolean>();
   constructor(private _el: ElementRef, private globals: Globals, private renderer: Renderer) {
     globals.totalelement.push(_el);
-    console.log(_el);
+  //  console.log(_el);
     globals.passwordmaintain = true;
     globals.numberonly = '';
     globals.numbers = '';
@@ -27,11 +27,25 @@ export class OTPDirective implements OnInit {
   //  this.globals.toObject();
     const char = e.key;
     const devicecheck = e.code;
+    const trigger = e.target || e.srcElement;
     const regExp = new RegExp(e.target.pattern);
     if (devicecheck !== '') {
       // not mobile
       if (e.target.value.length === 0) {
-        if (regExp.test(char) || e.key === 'Backspace') {
+        if (e.key === 'Tab') {
+          if (trigger.parentElement.nextElementSibling !== null) {
+            let nextControl: any = trigger.parentElement.nextElementSibling.children[0];
+            if (nextControl) {
+              nextControl.focus();
+            }
+            return false;
+          } else {
+            return true;
+          }
+        } else if (regExp.test(char) || e.key === 'Backspace') {
+          if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+            return false;
+          }
           this.globals.numbers = e.target.value;
           return true;
         } else {
@@ -40,6 +54,16 @@ export class OTPDirective implements OnInit {
       } else {
         if (e.key === 'Backspace') {
           return true;
+        } else if (e.key === 'Tab') {
+          if (trigger.parentElement.nextElementSibling !== null) {
+            let nextControl: any = trigger.parentElement.nextElementSibling.children[0];
+            if (nextControl) {
+              nextControl.focus();
+            }
+          return false;
+          } else {
+            return true;
+          }
         } else {
           return false;
         }
@@ -52,14 +76,14 @@ export class OTPDirective implements OnInit {
   }
 
   @HostListener('keyup', ['$event']) onKeyup(e: any) {
-    console.log(e);
+  //  console.log(e);
     this.divStyleWatch(e);
     const numberval = this.globals.specifictake(e);
     const index = numberval.indexOf(this.globals.numbers);
     const uservalue = numberval.charAt(index);
     e.target.value = uservalue;
     const trigger = e.target || e.srcElement;
-    if (trigger.maxLength === trigger.value.length) {
+    if ((trigger.maxLength === trigger.value.length) && e.key !== 'Tab') {
       this.globals.checkautosend(e.target.name);
       if (trigger.type === 'number') {
         var cccc;
@@ -76,6 +100,13 @@ export class OTPDirective implements OnInit {
         if (nextControl) {
           nextControl.focus();
         }
+      }
+    }
+    if (e.key === 'Tab') {
+      if (trigger.parentElement.nextElementSibling !== null) {
+        return false;
+      } else {
+        return true;
       }
     }
     if (e.key === 'Backspace') {
@@ -112,7 +143,7 @@ divStyleWatch(e) {
   const userchoose = e.target.offsetParent.id;
     this.serviceDirecties = this.globals.userchoosedidentify(userchoose);
     this.serviceDirecties.forEach((element, i) => {
-      console.log(element);
+    //  console.log(element);
       if (element.nativeElement.children[0].type) {
         if (element.nativeElement.children[0].value !== '') {
           this.renderer.setElementClass(element.nativeElement, 'infoPositive', true);
@@ -146,7 +177,7 @@ export class OTPSingleDirective implements OnInit {
     const devicecheck = e.code ;
     if (devicecheck !== '') {
       if (e.target.value.length + 1 <= e.target.maxLength) {
-      console.log('inside');
+     // console.log('inside');
       if (regExp.test(char) || e.key === 'Backspace') {
         return true;
        } else {
@@ -171,7 +202,7 @@ export class OTPSingleDirective implements OnInit {
 }
 
   @HostListener('click', ['$event']) onclick(e: any) {
-    console.log(this.globals.totalelement);
+ //   console.log(this.globals.totalelement);
     const trigger = e.target || e.srcElement;
     if (trigger.tagName === 'MAT-ICON') {
       if (trigger.textContent === 'visibility') {

@@ -38,13 +38,13 @@ export class MobileNotificationComponent {
     this.rows = temp;
   }
   edit(data) {
-    console.log(data);
+   // console.log(data);
   }
   delete(data) {
-    console.log(data);
+  //  console.log(data);
   }
   send(data) {
-    console.log(data);
+   // console.log(data);
   }
 
 

@@ -63,7 +63,9 @@
     <div style="margin-top: 20px;min-height:calc(100vh - 148px);">
  <div [customanimation]="'bounce'">
    <app-breadcrumb></app-breadcrumb>
-  <router-outlet ></router-outlet>
+<router-outlet (activate)="changeOfRoutes()"></router-outlet>
+<!-- <router-outlet></router-outlet> -->
+
 </div>
 
       </div>

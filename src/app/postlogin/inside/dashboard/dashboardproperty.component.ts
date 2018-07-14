@@ -255,18 +255,18 @@ export class DashboardPropertyComponent {
   }
 
   onSelect(event) {
-    console.log(event);
+  //  console.log(event);
   }
 
   optionsChange(options: IGridsterOptions) {
     this.gridsterOptions = options;
-    console.log('options change:', options);
+ //   console.log('options change:', options);
   }
   itemChange($event: any, gridster) {
-    console.log('item change', $event);
+ //   console.log('item change', $event);
   }
   onReflow(event) {
-    console.log('onReflow', event);
+  //  console.log('onReflow', event);
   }
   onResize(event) { this.view = [event.target.innerWidth - 900, 280]; }
 }

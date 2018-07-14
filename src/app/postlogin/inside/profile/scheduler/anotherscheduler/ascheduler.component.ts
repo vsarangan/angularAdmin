@@ -16,7 +16,7 @@ export class AschedulerComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    console.log('sdfdsf', this.dadaa);
+  //  console.log('sdfdsf', this.dadaa);
   }
   dataclickfn1() {
     this.dadaa.dataclickfn();

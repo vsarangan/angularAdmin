@@ -12,10 +12,10 @@
   <button mat-menu-item (click)="translate.use('fr')"> French </button>
 </mat-menu>
     </mat-toolbar>
-    <div fxLayout="row" fxLayoutAlign="center center" class="center-div">
+    <div fxLayout="row" fxLayoutAlign="center center"  class="center-div">
         <mat-card class="cardtop lgdesign" [customanimationsingle]="'bounce'">
-            <mat-toolbar class="bldesign" color="primary">
-
+            <!-- <mat-toolbar class="bldesign" color="primary" ngClass.xs="ngClassxs" ngClass.sm="ngClasssm" ngClass.md="ngClassmd" ngClass.lg="ngClasslg" ngClass.xl="ngClassxl"> -->
+<mat-toolbar class="bldesign" color="primary" >
                 <div class="mat-toolbar-tools">
                     <h2>
                         <span class="lgheading">{{ 'signin' | translate}}</span>
@@ -26,10 +26,11 @@
                 <mat-card-content style="height: 113px;" fxLayout="column" fxLayoutAlign="start stretch">
                     <mat-input-container style="margin-top: -30px;" class="example-full-width">
 
-<input matInput fxFill type="text" id="username" placeholder="User Name" value="" formControlName="username" required>
+<input matInput fxFill type="text" id="username" placeholder="User Name" value="" pattern="^[a-zA-Z0-9_ ]+$" formControlName="username"
+  required>
 
-
-                        <mat-error *ngIf="!form.get('username').valid && form.get('username').touched"> Please Enter User Name (Minimum 6 Characters)</mat-error>
+<mat-error *ngIf="form.get('username').valid &&  !form.get('username').pattern"> Enter the valid Name</mat-error>
+<mat-error *ngIf="!form.get('username').valid && form.get('username').touched"> Please Enter User Name (Minimum 6 Characters)</mat-error>
                     </mat-input-container>
                     <mat-input-container style="margin-top: 11px;" class="example-full-width">
 

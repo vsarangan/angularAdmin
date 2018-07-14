@@ -26,4 +26,18 @@ export class AppComponent {
   onRightClick() {
     return false;
   }
+  changeOfRoutes() {
+  //  history.pushState(null, null, location.href);
+    // window.location.href += '#';
+    // const _hash = '!';
+    // // making sure we have the fruit available for juice (^__^)
+    // window.setTimeout(function () {
+    //   window.location.href += '!';
+    // }, 50);
+    // window.onhashchange = function () {
+    //   if (window.location.hash !== _hash) {
+    //     window.location.hash = _hash;
+    //   }
+    // };
+  }
 }

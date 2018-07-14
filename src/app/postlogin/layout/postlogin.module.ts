@@ -29,6 +29,11 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { FromsComponent } from '../inside/stepper/steppers/forms.component';
 import { TickerComponent } from '../inside/accounts/ticker/ticker.component';
 import { TickerDirective } from '../../directives/ticker';
+import { AdvancedSearchComponent } from '../inside/accounts/advancedSearch/advancedsearch.component';
+import { IsUnsedParameterPipe } from '../inside/accounts/advancedSearch/isUnsedParameter.pipe';
+import { ProfilechangeComponent } from './sidebar/profilechange/profilechange.component';
+import { ImageCropperModule } from 'ngx-img-cropper';
+import { AutoFocusDirective } from '../inside/accounts/advancedSearch/autoFocus.directive';
 
 @NgModule({
   imports: [
@@ -39,7 +44,8 @@ import { TickerDirective } from '../../directives/ticker';
     SystempropertyModule,
     UsermanagementModule,
     TranslateModule,
-    NgxChartsModule
+    NgxChartsModule,
+    ImageCropperModule
   ],
   declarations: [
     DashboardComponent,
@@ -58,10 +64,14 @@ import { TickerDirective } from '../../directives/ticker';
     BreadcrumbComponent,
     RotateComponent,
     TickerComponent,
-    TickerDirective
+    TickerDirective,
+    IsUnsedParameterPipe,
+    AdvancedSearchComponent,
+    ProfilechangeComponent,
+    AutoFocusDirective
   ],
   exports: [AppmoduleModule, SystempropertyModule, UsermanagementModule, NgxChartsModule ],
-  entryComponents: [],
-  providers: [DialogService, QuestionService, SideBarService]
+  entryComponents: [ProfilechangeComponent],
+  providers: [DialogService, QuestionService, SideBarService, IsUnsedParameterPipe]
 })
 export class PostloginModule {}

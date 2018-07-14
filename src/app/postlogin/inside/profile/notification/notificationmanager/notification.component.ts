@@ -51,6 +51,6 @@ export class NotificationComponent implements OnInit {
     });
   }
   FunCalled(data) {
-    console.log('data', data);
+   // console.log('data', data);
   }
 }

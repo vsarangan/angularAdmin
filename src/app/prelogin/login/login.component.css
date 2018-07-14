@@ -15,7 +15,21 @@ body {
     bottom: 0;
     position: absolute;
 }
-
+.ngClassxs{
+  background: red;
+}
+.ngClasssm {
+  background: green;
+}
+.ngClassmd {
+  background: yellow;
+}
+.ngClassxl {
+  background: black;
+}
+.ngClasslg {
+  background: grey;
+}
 .example-spacer {
     flex: 1 1 auto;
 }

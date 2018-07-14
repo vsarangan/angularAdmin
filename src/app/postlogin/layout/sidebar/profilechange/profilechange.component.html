@@ -1,0 +1,33 @@
+<div class="mxProfileWidth"></div>
+<div class="mxProfilePP" ngClass.xs="mxProfilePP_xs" ngClass.md="mxProfilePP_md" ngClass.lg="mxProfilePP_lg" ngClass.xl="mxProfilePP_xl"
+  id="myIdentifier">
+  <h2 mat-dialog-title>Change Profile Photo</h2>
+  <div fxLayout="row" fxLayoutWrap fxLayout.xs="column" class="mxProfileWrapper">
+    <div fxFlex="20" fxFlex.xs="100">
+      Profile
+    </div>
+    <div fxFlex.xs="100">
+      <span class="result rounded mxCropperProfile" *ngIf="data2.image">
+        <img [src]="data2.image" [width]="mxCropperSettings.croppedWidth" [height]="mxCropperSettings.croppedHeight">
+      </span>
+    </div>
+  </div>
+  <div fxLayout="row" class="mxProfileWrapper">
+    <div fxFlexFill>
+      <mat-form-field fxFlexFill fxFlex>
+        <input matInput placeholder="User Name" value="">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="profileImageAlert" *ngIf="!valid">{{UploadErrorMsg}}</div>
+  <div class="mxImgCropperArea">
+    <mat-dialog-content>
+      <img-cropper [image]="data2" [settings]="mxCropperSettings"></img-cropper>
+      <br>
+    </mat-dialog-content>
+    <mat-dialog-actions fxLayout="row" fxLayoutAlign="end">
+      <button mat-raised-button color="warm" (click)="onCancel()">CANCEL</button>&nbsp;
+      <button mat-raised-button color="primary" (click)="onConfirm()">CONFIRM</button>
+    </mat-dialog-actions>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-import { Injectable, EventEmitter, Output } from '@angular/core';
+import { Injectable, EventEmitter, Output, Renderer } from '@angular/core';
 
 @Injectable()
 export class Globals {
@@ -17,6 +17,7 @@ export class Globals {
   public pushdata;
   regex;
   groups = {};
+  renderer: Renderer;
   @Output() optData = new EventEmitter<any>();
   keycontrolservice(e) {
     if (e.target.value !== '') {
@@ -74,22 +75,41 @@ export class Globals {
             if (element.nativeElement.children[0].value !== '') {
               this.valueofelement.push(element.nativeElement.children[0].value);
               if (this.valueofelement.length === datafilter.length) {
-                console.log('meet  :)  ------>'); // meet the user value
+             //   console.log('meet  :)  ------>'); // meet the user value
                 this.datasendtoserver(this.valueofelement);
               }
             } else {
               const finalvalue = ''; // send to server
-              console.log('not meet');
+           //   console.log('not meet');
               this.optData.emit(finalvalue);
             }
           }
     });
   }
 
-  
+
   datasendtoserver(data) {
     const finalvalue = data.join(''); // send to server
-    console.log(finalvalue);
+  //  console.log(finalvalue);
     this.optData.emit(finalvalue);
+  }
+  clearOTPData() {
+    this.totalelement.forEach((element, i) => {
+      if (element.nativeElement.nodeName) {
+        if (element.nativeElement.nodeName === 'DIV') {
+          this.optData.emit('');
+          if (element.nativeElement.children[0].type) {
+            if (element.nativeElement.children[0].type === 'password') {
+              this.renderer.setElementProperty(element.nativeElement.children[0], 'value', '');
+            } else {
+              //  this.glbs.passwordmaintain = false;
+              this.renderer.setElementProperty(element.nativeElement.children[0], 'value', '');
+              this.renderer.setElementClass(element.nativeElement, 'addclass', false);
+              this.renderer.setElementClass(element.nativeElement.children[0], 'fontwhite', false);
+            }
+          }
+        }
+      }
+    });
   }
 }

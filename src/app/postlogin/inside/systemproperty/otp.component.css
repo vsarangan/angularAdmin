@@ -9,7 +9,16 @@
   /* color: transparent;
   text-shadow: 0 0 0 #000; */
 }
-
+.atagdesign{
+  position: relative;
+  background: red;
+  display: inline;
+  cursor: pointer;
+}
+.atagmat{
+  position: relative;
+  top: 7px;
+}
 input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   -moz-appearance: none;

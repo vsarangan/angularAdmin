@@ -24,7 +24,7 @@ export class RotateComponent implements OnInit  {
     this.buttons = this.el.nativeElement.querySelectorAll('.button');
     this.count = this.buttons.length;
     this.increase = Math.PI * 2 / this.buttons.length;
-    console.log(this.increase);
+  //  console.log(this.increase);
     this.buttons.forEach((button, i) => {
       button.style.top = Math.sin(-Math.PI / 2 + i * this.increase) * this.radius + 'px';
       button.style.left = Math.cos(-Math.PI / 2 + i * this.increase) * this.radius + 'px';
@@ -32,10 +32,10 @@ export class RotateComponent implements OnInit  {
     });
   }
   @HostListener('click', ['$event']) clickevent(event) {
-    console.log(event);
-    console.log(this.buttons);
+   // console.log(event);
+  //  console.log(this.buttons);
     const n = event.srcElement.dataset.index;
-    console.log('n', n);
+   // console.log('n', n);
     this.endAngle = (n % this.count) * this.increase;
     this.turn();
   }

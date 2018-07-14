@@ -1,5 +1,7 @@
-import { Component, OnInit, ElementRef, ViewChild, OnChanges, Input, HostListener} from '@angular/core';
+
+import { Component, OnInit, ElementRef, ViewChild, OnChanges, Input, HostListener, Renderer} from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Globals } from './global';
 @Component({
   selector: 'app-systemproperty',
   templateUrl: './systemproperty.component.html',
@@ -8,18 +10,20 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 export class SystemPropertyComponent implements OnInit {
   initialCount = 5;
   form: FormGroup;
-  constructor(private _formBuilder: FormBuilder) {
+  constructor(private _formBuilder: FormBuilder, private cmpt: Globals, renderer: Renderer) {
+    cmpt.renderer = renderer;
   }
   ngOnInit(): void {
+
     this.form = this._formBuilder.group({
       username: ['', Validators.required],
-      phonenumber: ['', Validators.required],
-      Pinpad: [null, Validators.required]
+      phonenumber: ['', Validators.required]
     });
   }
   onsubmit(form) {
+    console.log(this.cmpt);
     if (this.form.valid) {
-      alert();
+      this.cmpt.clearOTPData();
     }
   }
 

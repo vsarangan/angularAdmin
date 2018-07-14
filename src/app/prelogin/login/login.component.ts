@@ -34,8 +34,8 @@ export class LoginComponent implements OnInit {
       authenticated => {
         if (authenticated) {
           const url = this.services.getRedirectUrl();
-          console.log('Redirect Url:' + url);
-          this.router.navigate([url], { skipLocationChange: true });
+       //   console.log('Redirect Url:' + url);
+          this.router.navigate([url]);
         } else {
           this.snackBar.open('User Name or Password is Invalid', 'Retry', {
             duration: 3000
@@ -46,6 +46,6 @@ export class LoginComponent implements OnInit {
 
   }
   getFormErrorMessage(data) {
-    console.log('data', data);
+  //  console.log('data', data);
   }
 }

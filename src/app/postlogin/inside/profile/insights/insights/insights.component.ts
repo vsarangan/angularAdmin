@@ -43,7 +43,7 @@ export class InsightsComponent implements OnInit, DoCheck {
     this.single = this.rows;
   }
   onSelect(event) {
-    console.log(event);
+   // console.log(event);
   }
 
   updateFilter(event) {
@@ -58,13 +58,13 @@ export class InsightsComponent implements OnInit, DoCheck {
     this.rows = temp;
   }
   edit(data) {
-    console.log(data);
+  //  console.log(data);
   }
   delete(data) {
-    console.log(data);
+ //   console.log(data);
   }
   send(data) {
-    console.log(data);
+  //  console.log(data);
   }
   ngDoCheck() {
     if (this.table && this.table.recalculate && (this.tableWrapper.nativeElement.clientWidth !== this.currentComponentWidth)) {

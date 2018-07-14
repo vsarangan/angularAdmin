@@ -21,10 +21,10 @@ registerLocaleData(localeFr, 'fr');
 @NgModule({
   declarations: [AppComponent, LoginComponent, CustompipePipe, KeyPreventDirective],
   imports: [
-    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     SharedModule,
+    AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production
     })

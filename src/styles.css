@@ -11,7 +11,9 @@
 .fs18 {
   font-size: 18px;
 }
-
+perfect-scrollbar>.ps.ps--active-y>.ps__rail-y {
+  display: none !important;
+}
 .mat-dialog-content {
   max-height: 70%;
   min-height: 352px;

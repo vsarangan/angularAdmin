@@ -8,7 +8,7 @@ export class QuestionControlService {
   constructor() { }
 
   toFormGroup(questions) {
-    console.log(questions);
+  //  console.log(questions);
     let group: any = {};
 
     questions.forEach(question => {

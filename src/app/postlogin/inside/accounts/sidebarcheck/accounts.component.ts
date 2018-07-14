@@ -7,7 +7,6 @@ import { DialogService } from '../../../../services/dialog.service';
 import { Observable } from 'rxjs/Observable';
 import { Element } from '@angular/compiler';
 import { OTPComponent } from '../../systemproperty/otp.component';
-
 @Component({
   selector: 'app-accounts',
   templateUrl: './accounts.component.html',
@@ -72,10 +71,12 @@ export class AccountsComponent implements OnInit  {
     }
   ];
   myText = 'A String from the Component';
-  constructor(private router: Router) {
+  constructor(private router: Router, private dgservice: DialogService) {
 
   }
   ngOnInit(): void {
   }
-
+  canDeactivate(): Observable<boolean> | boolean {
+    return this.dgservice.confirm('Discard changes for Person?');
+  }
 }

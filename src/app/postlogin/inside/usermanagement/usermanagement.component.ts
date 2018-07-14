@@ -10,6 +10,7 @@ export class UserManageComponent implements OnInit {
 
   form: FormGroup;
   form1: FormGroup;
+  formControlValue: FormGroup;
   form2;
   myControl: FormControl = new FormControl();
 
@@ -18,22 +19,24 @@ export class UserManageComponent implements OnInit {
     'Two',
     'Three'
   ];
-
+  outerCounterValue = 3;
   constructor(private formBuilder: FormBuilder) {
-    console.log('constructor');
+  //  console.log('constructor');
    }
   ngOnInit() {
-    console.log('oninit');
-    this.form = this.formBuilder.group({
-      username: [null, [Validators.required]],
-      phonenumber: [null, [Validators.required]],
-      emailid: [null, [Validators.required]],
-      address: [null, [Validators.required]],
-      state: [null, [Validators.required]],
-      country: [null, [Validators.required]],
-      pincode: [null, [Validators.required]]
+  //  console.log('oninit');
+    // this.form = this.formBuilder.group({
+    //   username: [null, [Validators.required]],
+    //   phonenumber: [null, [Validators.required]],
+    //   emailid: [null, [Validators.required]],
+    //   address: [null, [Validators.required]],
+    //   state: [null, [Validators.required]],
+    //   country: [null, [Validators.required]],
+    //   pincode: [null, [Validators.required]]
+    // });
+    this.formControlValue = this.formBuilder.group({
+      counter: [null, [Validators.required]],
     });
-
     // this.form1 = new FormGroup({
     //   username1: new FormControl({}),
     //   phonenumber1: new FormControl({}),
@@ -45,25 +48,27 @@ export class UserManageComponent implements OnInit {
     //     pincode1: ''
     //   })
     // });
-    this.form1 = this.formBuilder.group({
-      username1: [null, [Validators.required]],
-      phonenumber1: [null, [Validators.required]],
-      emailid1: [null, [Validators.required]],
-      form2: new FormControl({
-        address1: '',
-        state1: '',
-        country1: '',
-        pincode1: ''
-      })
-    });
+    // this.form1 = this.formBuilder.group({
+    //   username1: [null, [Validators.required]],
+    //   phonenumber1: [null, [Validators.required]],
+    //   emailid1: [null, [Validators.required]],
+    //   form2: new FormControl({
+    //     address1: '',
+    //     state1: '',
+    //     country1: '',
+    //     pincode1: ''
+    //   })
+    // });
 
-    this.form1.valueChanges.subscribe(data => this.onValueChanged5(data));
-    this.onValueChanged5();
+    // this.form1.valueChanges.subscribe(data => this.onValueChanged5(data));
+    // this.onValueChanged5();
   }
   onsubmit(data) {
+  //  console.log(data);
+  }
+  submit(data) {
     console.log(data);
   }
-
   onValueChanged5(data?: any) {
     if (!this.form1) { return; }
 

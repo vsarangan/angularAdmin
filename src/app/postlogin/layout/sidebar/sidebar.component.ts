@@ -8,6 +8,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { AppoperationComponent, NewAppComponent, DeleteAppComponent  } from '../../inside/apps/appoperation/appoperation.component';
 import { SideBarService } from './../sidebar.service';
 import { TranslateService } from '@ngx-translate/core';
+import { ProfilechangeComponent } from './profilechange/profilechange.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -78,13 +79,18 @@ export class SidebarComponent implements OnInit, DoCheck {
     this.router.navigate([data.link]);
   }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(NewAppComponent, {
-      height: '500px',
-      width: '800px'
-    });
+  // openDialog() {
+  //   const dialogRef = this.dialog.open(ProfilechangeComponent, {
+  //     height: '70%',
+  //     width: '60%'
+  //   });
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log(result);
+  //   });
+  // }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ProfilechangeComponent, { hasBackdrop: true, disableClose: true });
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
     });
   }
    ngDoCheck() {

@@ -19,7 +19,7 @@ constructor() {
   }
   onSubmit(form: NgForm) {
     if (form.valid) {
-      console.log(form.value);
+    //  console.log(form.value);
     }
   }
 }

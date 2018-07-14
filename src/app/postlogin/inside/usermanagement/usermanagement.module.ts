@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { UserManageComponent } from './usermanagement.component';
 import { usermanageRoutes } from './usermanagement.routing';
+import { ControlValueAccessorComponent } from './ControlValueAccessor/controlValueAccessor.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { usermanageRoutes } from './usermanagement.routing';
     UserManageComponent,
     FormManageComponent,
     FormManage1Component,
-    TemplateDrivenComponent
+    TemplateDrivenComponent,
+    ControlValueAccessorComponent
   ]
 })
 export class UsermanagementModule { }

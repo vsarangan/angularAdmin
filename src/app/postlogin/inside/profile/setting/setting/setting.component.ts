@@ -19,7 +19,7 @@ export class SettingComponent implements OnInit {
   name;
   constructor(private _formBuilder: FormBuilder, private frm: Formcontrols) {
     this.frm.formRequiredChange.subscribe(value => {
-      console.log('value', value);
+    //  console.log('value', value);
       this.isname = value.nameofvalue;
       this.isname1 = value.nameofvalue2;
      // this.formInitialize();
@@ -35,11 +35,11 @@ export class SettingComponent implements OnInit {
      });
   }
   addPost(form) {
-    console.log(form);
+ //   console.log(form);
 if (form.valid) {
-  console.log('valid');
+//  console.log('valid');
 } else {
-  console.log('notvalid');
+//  console.log('notvalid');
 }
   }
   requiredChange(event) {

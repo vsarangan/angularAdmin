@@ -34,7 +34,7 @@ export class AuthService {
     this.http.get(this.filename).subscribe(data => {
       // Read the user infos  from the JSON response
       this.jsondata = data;
-      console.log(data);
+    //  console.log(data);
     });
   }
   getAllUsers(): Observable<User[]> {
@@ -63,7 +63,7 @@ export class AuthService {
     this.showLoadingSpinner();
     return this.getAllUsers()
       .map(users => {
-        console.log(users);
+      //  console.log(users);
         // tslint:disable-next-line:no-shadowed-variable
         let user = users.find(user => (user.username === username) && (user.password === password));
         if (user) {
@@ -86,7 +86,7 @@ export class AuthService {
 
   clearState() {
    this.location.replaceState('/');
-   this.router.navigate(['/']);
+    this.router.navigate(['/']);
   }
   changeMessage(data) {
     this.messageSource.next(data);

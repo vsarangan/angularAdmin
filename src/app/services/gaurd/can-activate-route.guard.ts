@@ -10,8 +10,9 @@ export class CanActivateRouteGuard implements CanActivate, CanActivateChild  {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     const url: string = state.url;
-    console.log(this.auth.isUserLoggedIn());
-    console.log('Url:' + url);
+  //  console.log(this.auth.isUserLoggedIn());
+  //  console.log('Url:' + url);
+
     if (this.auth.isUserLoggedIn()) {
       return true;
     }
@@ -25,7 +26,7 @@ export class CanActivateRouteGuard implements CanActivate, CanActivateChild  {
     if (loggedInUser.role === 'ADMIN') {
       return true;
     } else {
-      console.log('Unauthorized to open link: ' + state.url);
+    //  console.log('Unauthorized to open link: ' + state.url);
       this.snakbar.open('Sorry you are not Allowed to this module', 'Retry', {
         duration: 3000
       });

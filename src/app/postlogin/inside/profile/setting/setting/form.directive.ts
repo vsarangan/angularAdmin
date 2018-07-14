@@ -10,7 +10,7 @@ export class FormsDirective implements OnInit, AfterViewInit {
 
   constructor(private _el: ElementRef, private formc: Formcontrols, private renderer: Renderer2) {
     this.formc.totalelement = [];
-    console.log(_el);
+   // console.log(_el);
   }
   ngOnInit(): void {
     this.formc.totalelement.push(this._el);

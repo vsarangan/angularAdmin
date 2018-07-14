@@ -38,7 +38,7 @@ export class NewAppComponent implements OnInit {
   }
 
   saveForm(form) {
-    console.log(form);
+   // console.log(form);
   }
 
 

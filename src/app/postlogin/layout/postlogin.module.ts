@@ -1,4 +1,3 @@
-import { RotateComponent } from './../inside/accounts/rotate/rotate.component';
 import { BreadcrumbComponent } from './../breadcrum/breadcrumb.component';
 import { SteppersComponent } from './../inside/stepper/steppers/steppers.component';
 import { DashboardPropertyComponent } from './../inside/dashboard/dashboardproperty.component';
@@ -15,25 +14,16 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderComponent } from './header/header.component';
 import { FotterComponent } from './fotter/fotter.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { AccountsComponent } from '../inside/accounts/sidebarcheck/accounts.component';
 import { StepperComponent } from '../inside/stepper/stepper.component';
 import { DialogService } from '../../services/dialog.service';
 import { FromComponent } from '../inside/stepper/form.component';
-import { DynamicFormComponent } from '../inside/accounts/dynamicform/dynamic-form.component';
-import { DynamicFormsComponent } from '../inside/accounts/dynamicform/dynamicform.component';
-import { DynamicFormQuestionComponent } from '../inside/accounts/dynamicform/dynamic-form-question.component';
-import { QuestionService } from '../inside/accounts/dynamicform/question.service';
 import { SideBarService } from './sidebar.service';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { FromsComponent } from '../inside/stepper/steppers/forms.component';
-import { TickerComponent } from '../inside/accounts/ticker/ticker.component';
-import { TickerDirective } from '../../directives/ticker';
-import { AdvancedSearchComponent } from '../inside/accounts/advancedSearch/advancedsearch.component';
-import { IsUnsedParameterPipe } from '../inside/accounts/advancedSearch/isUnsedParameter.pipe';
 import { ProfilechangeComponent } from './sidebar/profilechange/profilechange.component';
 import { ImageCropperModule } from 'ngx-img-cropper';
-import { AutoFocusDirective } from '../inside/accounts/advancedSearch/autoFocus.directive';
+import { AccountsModule } from '../inside/accounts/accounts.module';
 
 @NgModule({
   imports: [
@@ -45,33 +35,25 @@ import { AutoFocusDirective } from '../inside/accounts/advancedSearch/autoFocus.
     UsermanagementModule,
     TranslateModule,
     NgxChartsModule,
-    ImageCropperModule
+    ImageCropperModule,
+    AccountsModule
   ],
   declarations: [
     DashboardComponent,
     HeaderComponent,
     FotterComponent,
-    AccountsComponent,
     SidebarComponent,
     StepperComponent,
     FromComponent,
-    DynamicFormComponent,
-    DynamicFormsComponent,
-    DynamicFormQuestionComponent,
     DashboardPropertyComponent,
     SteppersComponent,
     FromsComponent,
     BreadcrumbComponent,
-    RotateComponent,
-    TickerComponent,
-    TickerDirective,
-    IsUnsedParameterPipe,
-    AdvancedSearchComponent,
     ProfilechangeComponent,
-    AutoFocusDirective
+
   ],
   exports: [AppmoduleModule, SystempropertyModule, UsermanagementModule, NgxChartsModule ],
   entryComponents: [ProfilechangeComponent],
-  providers: [DialogService, QuestionService, SideBarService, IsUnsedParameterPipe]
+  providers: [DialogService, SideBarService]
 })
 export class PostloginModule {}

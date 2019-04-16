@@ -8,7 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { FotterComponent } from './fotter/fotter.component';
 import { AppsComponent } from '../inside/apps/apps.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { AccountsComponent } from '../inside/accounts/sidebarcheck/accounts.component';
+import { AccountsComponent } from '../inside/accounts/SampleCheckPlace/accounts.component';
 import { StepperComponent } from '../inside/stepper/stepper.component';
 import { CanDeactivateGuard } from '../../services/gaurd/can-deactivate-route.guard';
 
@@ -18,7 +18,7 @@ export const postRoutes: Routes = [
     component: DashboardComponent,
     children: [
       { path: 'apps', component: AppsComponent, data: { page: 'one', tittle: 'Apps'}},
-      { path: 'newApp', component: AccountsComponent, canDeactivate: [CanDeactivateGuard], data: { page: 'one', tittle: 'Accounts'  }},
+      { path: 'newApp', loadChildren: '../inside/accounts/accounts.module#AccountsModule', canActivateChild: [CanActivateRouteGuard] , data: { page: 'one', tittle: 'Accounts'  }},
       { path: 'stepper', component: StepperComponent, data: { page: 'one', tittle: 'Stepper'  } },
       { path: 'dashprop', component: DashboardPropertyComponent, data: { tittle: 'Dashboard' }},
       { path: 'notification', loadChildren: '../inside/profile/notification/notificationmodule.module#NotificationmoduleModule', canActivateChild: [CanActivateRouteGuard] },

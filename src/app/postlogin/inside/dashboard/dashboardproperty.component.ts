@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { DialogService } from '../../../services/dialog.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { single, multi } from './data';
 import { GridsterComponent, IGridsterOptions, IGridsterDraggableOptions } from 'angular2gridster';
 @Component({

@@ -1,38 +1,42 @@
 // Define a custom mixin that takes in the current theme
 @import '~@angular/material/theming';
 @mixin setTENSTheme($theme) {
-
- // Parse the theme and create variables for each color in the pallete
-    $primary: map-get($theme, primary);
-    $warn: map-get($theme, warn);
-    $foreground: map-get($theme, foreground);
-    $background: map-get($theme, background);
-
-    // Create theme specfic styles
-
-    .mat-toolbar.mat-primary {
-      background-color: mat-color($primary);
-       color: mat-color($foreground, text);
-      // border: 1px solid mat-color($primary);
-      border-bottom: 1px solid mat-color($foreground, divider);
-      }
-     a.mat-list-item.active {
-        background-color: mat-color($primary);
-        color: white; // border: 1px solid mat-color($primary);
-        border-bottom: 1px solid mat-color($foreground, divider);
-
-      }
-      a.mat-list-item.active:hover {
-        background-color: mat-color($primary);
-        color: white; // border: 1px solid mat-color($primary);
-        border-bottom: 1px solid mat-color($foreground, divider);
-      }
-      a.mat-list-item:not(.active):hover {
-        background-color:mat-color($warn) !important;
-        color: white;
-      }
-
-
-
-
+  // Parse the theme and create variables for each color in the pallete
+  $primary: map-get($theme, primary);
+  $warn: map-get($theme, warn);
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background); // Create theme specfic styles
+  .mat-toolbar.mat-primary {
+    background-color: mat-color($primary);
+    color: mat-color($foreground, text); // border: 1px solid mat-color($primary);
+    border-bottom: 1px solid mat-color($foreground, divider);
+  }
+  a.mat-list-item.active {
+    background-color: mat-color($primary);
+    color: white; // border: 1px solid mat-color($primary);
+    border-bottom: 1px solid mat-color($foreground, divider);
+  }
+  a.mat-list-item.active:hover {
+    background-color: mat-color($primary);
+    color: white; // border: 1px solid mat-color($primary);
+    border-bottom: 1px solid mat-color($foreground, divider);
+  }
+  a.mat-list-item:not(.active):hover {
+    background-color: mat-color($warn) !important;
+    color: white;
+  }
+  // pre {
+  //   background: #000000;
+  //   padding: 18px;
+  //   margin: 13px;
+  //   border: 4px solid mat-color($background);
+  //   color: white;
+  // }
+  .preTagStyle {
+      background: #000000;
+      padding: 18px;
+      margin: 13px;
+      border: 4px solid mat-color($primary);
+      color: white;
+    }
 }

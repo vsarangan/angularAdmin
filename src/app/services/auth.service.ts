@@ -1,12 +1,12 @@
+
+import {of as observableOf,  Observable ,  Subject } from 'rxjs';
+
+import {map} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/map';
-import { Subject } from 'rxjs/Subject';
 export class User {
   constructor(public userId: number, public username: string, public password: string, public role: string) {
   }
@@ -16,7 +16,7 @@ const USERS = [
   new User(1, 'sarangan', 'sarangan', 'ADMIN'),
   new User(2, 'demouser', 'demouser', 'USER')
 ];
-const usersObservable = Observable.of(USERS);
+const usersObservable = observableOf(USERS);
 
 @Injectable()
 export class AuthService {
@@ -61,8 +61,8 @@ export class AuthService {
   }
   isUserAuthenticated(username: string, password: string): Observable<boolean> {
     this.showLoadingSpinner();
-    return this.getAllUsers()
-      .map(users => {
+    return this.getAllUsers().pipe(
+      map(users => {
       //  console.log(users);
         // tslint:disable-next-line:no-shadowed-variable
         let user = users.find(user => (user.username === username) && (user.password === password));
@@ -74,7 +74,7 @@ export class AuthService {
         }
         this.hideLoadingSpinner();
         return this.isloggedIn;
-      });
+      }));
   }
   showLoadingSpinner() {
     this.showSpinner = true;

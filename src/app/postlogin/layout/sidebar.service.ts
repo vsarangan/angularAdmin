@@ -1,7 +1,7 @@
 import { Component, Injectable, Input, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 @Injectable()
 export class SideBarService {
   @Output() notificationside: EventEmitter<any> = new EventEmitter();

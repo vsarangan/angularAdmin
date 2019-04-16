@@ -1,19 +1,19 @@
 <form #newUserForm="ngForm" (ngSubmit)="onSubmit(newUserForm)">
-<mat-input-container>
+<mat-form-field>
   <input matInput fxFill type="text" placeholder="User name" required maxlength="25" [(ngModel)]="userName" name="userName" #pickedName="ngModel">
   <mat-error *ngIf="!pickedName.valid && pickedName.touched || pickedName.errors">  User name is required!</mat-error>
-</mat-input-container>
-<mat-input-container>
+</mat-form-field>
+<mat-form-field>
   <input matInput fxFill type="email" email placeholder="Email" required [(ngModel)]="email" name="email" #userEmail="ngModel">
   <mat-error *ngIf="!userEmail.valid && userEmail.touched || userEmail.errors"> User Email is required!</mat-error>
-</mat-input-container>
-<mat-input-container>
+</mat-form-field>
+<mat-form-field>
   <input matInput fxFill type="text" placeholder="Nick name" [(ngModel)]="nickName" name="nickName">
-</mat-input-container>
-<mat-input-container>
+</mat-form-field>
+<mat-form-field>
   <input matInput fxFill type="password"  placeholder="Password" required [(ngModel)]="password" name="password" #userPassword="ngModel">
   <mat-error *ngIf="!userPassword.valid && userPassword.touched || userPassword.errors"> Password is required!</mat-error>
-</mat-input-container>
+</mat-form-field>
   <button type='submit' mat-raised-button color="primary" >GO</button>
 </form>
 

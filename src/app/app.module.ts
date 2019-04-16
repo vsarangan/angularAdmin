@@ -1,3 +1,4 @@
+
 import { CommonService } from './services/common.service';
 import { environment } from './../environments/environment.prod';
 import { KeyPreventDirective } from './directives/keyprevent';
@@ -16,22 +17,35 @@ import { AuthService } from './services/auth.service';
 import localeFr from '@angular/common/locales/fr';
 import { CustompipePipe } from './pipes/custompipe.pipe';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { SingletonLoadsModule } from 'singleton-loads';
+// import { SaranganModule } from 'sarangan';
+import { SampleModule } from 'library';
+// import { StructuralDirective } from './directives/structural.directive';
 
 registerLocaleData(localeFr, 'fr');
 @NgModule({
-  declarations: [AppComponent, LoginComponent, CustompipePipe, KeyPreventDirective],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    CustompipePipe,
+    KeyPreventDirective,
+    // StructuralDirective
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     SharedModule,
+    // SingletonLoadsModule.forRoot(),
+    SampleModule.forRoot(),
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production
     })
   ],
   exports: [
+    // StructuralDirective
   ],
-  providers: [AuthService, CommonService, CanActivateRouteGuard, CanDeactivateGuard, { provide: LOCALE_ID, useValue: 'fr' } ],
+  providers: [AuthService, CommonService, CanActivateRouteGuard, CanDeactivateGuard, { provide: LOCALE_ID, useValue: 'fr' }],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

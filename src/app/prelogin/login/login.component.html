@@ -24,15 +24,15 @@
             </mat-toolbar>
             <form class="example-form" [formGroup]="form" (ngSubmit)="onLogin(form)" novalidate>
                 <mat-card-content style="height: 113px;" fxLayout="column" fxLayoutAlign="start stretch">
-                    <mat-input-container style="margin-top: -30px;" class="example-full-width">
+                    <mat-form-field style="margin-top: -30px;" class="example-full-width">
 
 <input matInput fxFill type="text" id="username" placeholder="User Name" value="" pattern="^[a-zA-Z0-9_ ]+$" formControlName="username"
   required>
 
 <mat-error *ngIf="form.get('username').valid &&  !form.get('username').pattern"> Enter the valid Name</mat-error>
 <mat-error *ngIf="!form.get('username').valid && form.get('username').touched"> Please Enter User Name (Minimum 6 Characters)</mat-error>
-                    </mat-input-container>
-                    <mat-input-container style="margin-top: 11px;" class="example-full-width">
+                    </mat-form-field>
+                    <mat-form-field style="margin-top: 11px;" class="example-full-width">
 
                         <input matInput fxFill type="password" id="password" placeholder="Password" value="" formControlName="password" required>
 <mat-error *ngIf="!form.get('password').valid && form.get('password').touched"> Please Enter Password (Minimum 6 Characters) {{getFormErrorMessage( 'exchange' )}}</mat-error>
@@ -41,7 +41,7 @@
 
 
 
-                    </mat-input-container>
+                    </mat-form-field>
 
 
                 </mat-card-content>

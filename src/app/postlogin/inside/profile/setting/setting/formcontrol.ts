@@ -1,7 +1,6 @@
-import { Subject } from 'rxjs/Subject';
+import { Subject ,  Observable } from 'rxjs';
 import { FormsDirective } from './form.directive';
 import { Injectable, EventEmitter, Output } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class Formcontrols {
   public totalelement = [];

@@ -2,7 +2,7 @@ import { element } from 'protractor';
 import { Component, OnInit, ViewChild, Renderer, Renderer2, ElementRef, HostListener } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { DialogService } from '../../../../services/dialog.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Element } from '@angular/compiler';
 @Component({
   selector: 'app-rotate',

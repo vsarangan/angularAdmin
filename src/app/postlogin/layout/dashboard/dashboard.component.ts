@@ -2,13 +2,14 @@ import { SchedulerComponent } from './../../inside/profile/scheduler/scheduler/s
 import { Router, NavigationEnd } from '@angular/router';
 import { Element } from '@angular/compiler';
 import { AuthService } from './../../../services/auth.service';
-import { Component, OnInit, ViewChild, ElementRef, Renderer } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Renderer, Renderer2, Inject } from '@angular/core';
 import { PerfectScrollbarModule, PerfectScrollbarComponent } from 'ngx-perfect-scrollbar';
 import { TranslateService } from '@ngx-translate/core';
 import { ObservableMedia } from '@angular/flex-layout';
-import { Meta } from '@angular/platform-browser';
+import { Meta, DOCUMENT } from '@angular/platform-browser';
 import { MatSidenav } from '@angular/material';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
+import { SampleService } from 'library';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -49,7 +50,8 @@ export class DashboardComponent implements OnInit {
     }
   ];
   config = '';
-  constructor(private _element: ElementRef, public translate: TranslateService, public media: ObservableMedia, public userauth: AuthService, private meta: Meta, private renderer: Renderer, private router: Router, private sched: AuthService ) {
+  constructor(@Inject(DOCUMENT) document, private _element: ElementRef,
+   public translate: TranslateService, public media: ObservableMedia, public userauth: AuthService, private meta: Meta, private renderer: Renderer2, private router: Router, private sched: AuthService, private singletonServ: SampleService ) {
     translate.use('en');
     this.sched.messageSource.subscribe(value => {
       this.childdata = value;
@@ -60,6 +62,7 @@ export class DashboardComponent implements OnInit {
 
 
   ngOnInit() {
+    console.log(this.singletonServ.get('appid'));
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
         return;
@@ -76,6 +79,7 @@ export class DashboardComponent implements OnInit {
     this.selectedItem = data;
     this.icon = data.active;
     this.themeapply = data.property;
+    // this.renderer.addClass(document.body, this.themeapply);
     this.meta.updateTag({ name: 'theme-color', content: data.color });
   }
 

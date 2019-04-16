@@ -1,0 +1,60 @@
+<div class="componentAlignment advancedSearchBox ">
+<form class="example-form" [formGroup]="form" (ngSubmit)="formSubmit(form)" novalidate>
+<div *ngIf="searchParams.length !== 0" style="width:26%;display: initial;" >
+<div class="search-parameter" *ngFor="let searchParam of searchParams; let index = index" style="display: inline-block;" >
+<mat-form-field class="example-width12">
+<input matInput appAutoFocus formControlName="{{searchParam.formFieldname}}" *ngIf="searchParam.type === 'text'"
+  type="{{searchParam.type}}"
+  value="{{searchParam.value}}" (blur)="leaveEditMode($event,index)"
+ placeholder="{{searchParam.placeholder}}" autocomplete="off"  pattern="{{searchParam.pattern}}"
+minlength="{{searchParam.minlength}}"
+maxlength="{{searchParam.maxlength}}"
+required/>
+<mat-error *ngIf="form.controls[searchParam.formFieldname].errors?.minlength">
+Minimum Length is {{searchParam.minlength}} ...
+</mat-error>
+<mat-error *ngIf="form.controls[searchParam.formFieldname].errors?.maxlength">
+Maximum Length is {{searchParam.maxlength}} ...
+</mat-error>
+<mat-error *ngIf="form.controls[searchParam.formFieldname].errors?.pattern">
+Please enter the valid value
+</mat-error>
+<mat-select appAutoFocus ngClass="{{searchParam.value ? 'availablevalue': 'notavailable'}}" *ngIf="searchParam.type === 'dropdown'" formControlName="{{searchParam.formFieldname}}"
+  value="{{searchParam.value}}"
+  placeholder="{{searchParam.placeholder}}"
+ (blur)="leaveEditMode($event,index)" required>
+<mat-option *ngFor="let search of searchParam.suggestedValues" value="{{search.value}}">
+ {{search.label}}
+  </mat-option>
+</mat-select>
+<mat-error *ngIf="form.controls[searchParam.formFieldname].errors?.required">
+Field is required
+</mat-error>
+</mat-form-field>
+<button mat-icon-button (click)="removeSearchParam(index)" style="float:right;margin-top: 11px;">
+  <mat-icon>delete</mat-icon>
+</button>
+</div>
+</div>
+
+<mat-form-field class="example-full-width">
+<input matInput placeholder="{{searchPlaceholder}}" formControlName="searchQuery" (keydown)="keyUpEventTrigger($event)" (focus)="focus = true"
+  autocomplete="off"
+  type="text">
+
+</mat-form-field>
+<button mat-icon-button (click)="removeAll()">
+  <mat-icon>delete</mat-icon>
+</button>
+<button type='submit' mat-raised-button color="primary" [disabled]="!form.valid">GO</button>
+</form>
+
+<div class="search-parameter-suggestions" *ngIf="parameters && focus">
+  <span class="title">{{parametersLabel}}:</span>
+<button mat-flat-button class="mLeft8" *ngFor="let param of parametersTemp" id="{{param.key}}"
+  (mousedown)="addSearchParam(param)">
+    {{param.name}}
+<mat-icon *ngIf="param.allowMultiple" class="plusBtn">add</mat-icon>
+</button>
+</div>
+</div>

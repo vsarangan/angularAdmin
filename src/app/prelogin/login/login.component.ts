@@ -5,6 +5,7 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 import { AuthService } from '../../services/auth.service';
 import { MatSnackBar } from '@angular/material';
 import { TranslateService } from '@ngx-translate/core';
+import { SampleService } from 'library';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,14 +19,16 @@ export class LoginComponent implements OnInit {
   ngdata2 = 'sadsd111fsd';
   today = 'sarangan';
   datas = 'fr';
-  constructor(public translate: TranslateService, private formBuilder: FormBuilder, private router: Router, public services: AuthService, public snackBar: MatSnackBar) {
+  constructor(public translate: TranslateService, private formBuilder: FormBuilder, private router: Router, public services: AuthService, public snackBar: MatSnackBar, private singletonServ: SampleService) {
   }
 
   ngOnInit() {
+
     this.form = this.formBuilder.group({
       username: [null, [Validators.required, Validators.minLength(6)]],
       password: [null, [Validators.required, Validators.minLength(6)]]
     });
+    // console.log(this.singletonServ.get('appid'));
   }
   onLogin(form) {
     const user = form.value.username;

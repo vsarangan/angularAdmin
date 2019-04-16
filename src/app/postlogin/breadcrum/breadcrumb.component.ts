@@ -1,7 +1,7 @@
 import { Component, OnInit, DoCheck, ViewChild } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { Router, Event as RouterEvent, NavigationEnd, CanActivate, ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot, ActivationEnd, Params, PRIMARY_OUTLET } from '@angular/router';
-import 'rxjs/add/operator/filter';
+
 export interface IBreadcrumb {
   label: string;
   stringdata?: string;
